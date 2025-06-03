@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon-32x32.png" type="/favicon.ico">
+    <meta name="description" content="Instituto Domingo Faustino Sarmiento - Educación integral y valores para el futuro.">
+    <meta name="keywords" content="educación, valores, aprendizaje, comunidad, Sarmiento">
+    <meta name="author" content="Instituto Sarmiento">
+    <title>Menú y Footer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos del archivo original */
+        :root {
+            --sas-blue: #1a2238;
+            --sas-blue-light: #3a497b;
+            --sas-grey-light: #f5f6fa;
+            --sas-grey: #dbe2ef;
+            --sas-grey-dark: #393e46;
+            --sas-footer-bg: #1a2238;
+            --sas-text-light: #ffffff;
+            --sas-text-dark: #222831;
+            --sas-red: #ff002b;
+            --sas-purple: #7c3aed;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body.sas-body {
+            font-family: 'Arial', sans-serif;
+            color: var(--sas-text-dark);
+            line-height: 1.6;
+        }
+
+        a.sas-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        a.sas-link:focus {
+            outline: 2px solid #FFD700;
+        }
+
+        .sas-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Estilos del menú */
+        .sas-new-nav {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background: linear-gradient(90deg, #1a2238, #3a497b);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .sas-nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .sas-logo-link img {
+            height: 50px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .sas-logo-link:hover img {
+            transform: scale(1.1);
+        }
+
+        .sas-nav-menu {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .sas-nav-link {
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: color 0.3s ease-in-out, background 0.3s ease-in-out;
+            border-radius: 8px;
+        }
+
+        .sas-nav-link:hover {
+            background: #ff002b;
+            color: #ffffff;
+        }
+
+        .sas-nav-dropdown {
+            position: relative;
+        }
+
+        .sas-dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            z-index: 100;
+        }
+
+        .sas-dropdown-link {
+            display: block;
+            padding: 10px 20px;
+            color: #1a2238;
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+
+        .sas-dropdown-link:hover {
+            background: #3a497b;
+            color: #ffffff;
+        }
+
+        .sas-nav-dropdown:hover .sas-dropdown-menu {
+            display: block;
+        }
+
+        .sas-nav-burger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+        }
+
+        .sas-nav-burger span {
+            display: block;
+            width: 30px;
+            height: 4px;
+            margin: 5px 0;
+            background: #ffffff;
+            border-radius: 2px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .sas-nav-burger.active span:nth-child(1) {
+            transform: translateY(10px) rotate(45deg);
+        }
+
+        .sas-nav-burger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .sas-nav-burger.active span:nth-child(3) {
+            transform: translateY(-10px) rotate(-45deg);
+        }
+
+        @media (max-width: 768px) {
+            .sas-nav-menu {
+                display: none;
+                flex-direction: column;
+                background: #1a2238;
+                position: fixed;
+                top: 0;
+                right: 0;
+                width: 80%;
+                height: 100%;
+                padding: 20px;
+                box-shadow: -4px 0 12px rgba(0, 0, 0, 0.1);
+                z-index: 1000;
+            }
+
+            .sas-nav-menu.active {
+                display: flex;
+            }
+
+            .sas-nav-link {
+                padding: 15px;
+                text-align: center;
+            }
+
+            .sas-nav-burger {
+                display: flex;
+            }
+        }
+
+        /* Efecto titilar en rojo para INSCRIPCIONES */
+        .sas-nav-link.inscripciones {
+            animation: titilar 1s infinite;
+        }
+
+        @keyframes titilar {
+            0%, 100% {
+                background-color: #ff002b;
+                color: #ffffff;
+            }
+            50% {
+                background-color: transparent;
+                color: #ff002b;
+            }
+        }
+
+        /* Estilos del footer */
+        .sas-footer {
+            background-color: var(--sas-footer-bg);
+            color: var(--sas-text-light);
+            padding: 3rem 0 1rem;
+            text-align: center;
+        }
+
+        .sas-footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 2rem;
+        }
+
+        .sas-footer-column h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .sas-footer-column h4::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--sas-grey);
+            margin-top: 8px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .sas-footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sas-footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .sas-footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .sas-footer-social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--sas-grey-light);
+            color: var(--sas-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .sas-footer-social-icon:hover {
+            background-color: var(--sas-blue-light);
+            transform: scale(1.1);
+        }
+
+        .sas-footer-divider {
+            height: 1px;
+            background-color: var(--sas-grey);
+            margin: 1rem 0;
+        }
+
+        .sas-footer-bottom {
+            font-size: 0.9rem;
+            color: var(--sas-grey-light);
+        }
+
+        /* Estilos del Staff */
+        .sas-staff {
+            background-color: var(--sas-grey-light);
+            padding: 4rem 0;
+        }
+
+        .sas-staff-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--sas-blue);
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .sas-staff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            justify-items: center;
+        }
+
+        .sas-staff-card {
+            background-color: var(--sas-footer-bg);
+            color: var(--sas-text-light);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            max-width: 300px;
+        }
+
+        .sas-staff-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .sas-staff-icon {
+            font-size: 3rem;
+            color: var(--sas-red);
+            margin-bottom: 1rem;
+        }
+
+        .sas-staff-role {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .sas-staff-name {
+            font-size: 1.2rem;
+            color: var(--sas-grey-light);
+        }
+
+        /* Estilos del botón Volver Atrás */
+        .sas-back-button-container {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .sas-back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--sas-red);
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 8px; 
+            transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+
+        .sas-back-button:hover {
+            background-color: #e60024;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="sas-body">
+    <!-- Header -->
+    <header>
+        <nav class="sas-new-nav">
+            <div class="sas-container sas-nav-content">
+                <a href="/" class="sas-logo-link">
+                    <img src="/imagenes/Sarmiento.png" alt="Logo del Instituto Sarmiento" class="sas-logo-image">
+                </a>
+                <ul class="sas-nav-menu">
+                    <li><a href="#sas-welcome" class="sas-nav-link">HISTORIA</a></li>
+                    <li class="sas-nav-dropdown">
+                        <a href="#sas-educational-levels" class="sas-nav-link">FORMACIÓN</a>
+                        <ul class="sas-dropdown-menu">
+                            <li><a href="/kinder" class="sas-dropdown-link">EDUCACIÓN INICIAL</a></li>
+                            <li><a href="/primaria" class="sas-dropdown-link">EDUCACIÓN PRIMARIA</a></li>
+                            <li><a href="/secundaria" class="sas-dropdown-link">EDUCACIÓN SECUNDARIA</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/deportes" class="sas-nav-link">STAFF</a></li>
+                    <li><a href="/comunidad" class="sas-nav-link inscripciones">INSCRIPCIONES</a></li>
+                    <li><a href="/contacto" class="sas-nav-link">CONTACTO</a></li>
+                </ul>
+                <button class="sas-nav-burger" id="sas-nav-burger" aria-label="Abrir menú móvil">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Sección del Staff -->
+    <section class="sas-staff">
+        <div class="sas-container">
+            <h2 class="sas-staff-title">STAFF</h2>
+            
+            <!-- Botón Volver Atrás -->
+            <div class="sas-back-button-container">
+                <a href="index.html" class="sas-back-button">Volver Atrás</a>
+            </div>
+            
+            <div class="sas-staff-grid">
+                <!-- Tarjetas del staff -->
+                <div class="sas-staff-card">
+                    <i class="fas fa-user-tie sas-staff-icon"></i>
+                    <h3 class="sas-staff-role">REPRESENTANTE LEGAL</h3>
+                    <p class="sas-staff-name">DRA. VALERIA MELCHIORRE</p>
+                </div>
+                <div class="sas-staff-card">
+                    <i class="fas fa-user-tie sas-staff-icon"></i>
+                    <h3 class="sas-staff-role">REPRESENTANTE LEGAL</h3>
+                    <p class="sas-staff-name">LIC. MARÍA BELÉN COLONNA</p>
+                </div>
+
+                <!-- Nivel Inicial -->
+                <div class="sas-staff-card">
+                    <i class="fas fa-chalkboard-teacher sas-staff-icon"></i>
+                    <h3 class="sas-staff-role">DIRECCIÓN NIVEL INICIAL</h3>
+                    <p class="sas-staff-name">PROF. LILIANA SALERNO</p>
+                </div>
+                <div class="sas-staff-card">
+                    <i class="fas fa-chalkboard-teacher sas-staff-icon"></i>
+                    <h3 class="sas-staff-role">VICEDIRECCIÓN NIVEL INICIAL</h3>
+                    <p class="sas-staff-name">PROF. PAULA PENSADO</p>
+                </div>
+
+                <!-- Nivel Primario -->
+                <div class="sas-staff-card">
+                    <i class="fas fa-school sas-staff-icon"></i>
+                    <h3 class="sas-staff-role">DIRECCIÓN NIVEL PRIMARIO</h3>
+                    <p class="sas-staff-name">LIC. MARÍA BELÉN COLONNA</p>
+                </div>
+                <div class="sas-staff-card">
+                    <i class="fas fa-school sas-staff-icon"></i>
+                    <h3 class="sas-staff-role">VICEDIRECCIÓN NIVEL PRIMARIO</h3>
+                    <p class="sas-staff-name">MAG. DANIELA BLOIS</p>
+                </div>
+
+                <!-- Nivel Secundario -->
+                <div class="sas-staff-card">
+                    <i class="fas fa-graduation-cap sas-staff-icon"></i>
+                    <h3 class="sas-staff-role">DIRECCIÓN NIVEL SECUNDARIO</h3>
+                    <p class="sas-staff-name">PROF. GLADYS PERFUMO</p>
+                </div>
+                <div class="sas-staff-card">
+                    <i class="fas fa-graduation-cap sas-staff-icon"></i>
+                    <h3 class="sas-staff-role">VICEDIRECCIÓN NIVEL SECUNDARIO</h3>
+                    <p class="sas-staff-name">LIC. MARIELA CORINTO</p>
+                </div>
+
+                <!-- Departamento de Inglés -->
+                <div class="sas-staff-card">
+                    <i class="fas fa-language sas-staff-icon"></i>
+                    <h3 class="sas-staff-role">DIRECCIÓN DEPARTAMENTO DE INGLÉS</h3>
+                    <p class="sas-staff-name">LIC. PATRICIA FORTE</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="sas-footer">
+        <div class="sas-container sas-footer-content">
+            <!-- Primera columna -->
+            <div class="sas-footer-column">
+                <h4>Contacto</h4>
+                <ul>
+                    <li class="sas-contact-item">
+                        <span class="sas-contact-icon"><i class="fas fa-map-marker-alt"></i></span>
+                        <span>Italia 1170, San Antonio de Padua</span>
+                    </li>
+                    <li class="sas-contact-item">
+                        <span class="sas-contact-icon"><i class="fas fa-phone"></i></span>
+                        <span>+54 11 4555-1234</span>
+                    </li>
+                    <li class="sas-contact-item">
+                        <span class="sas-contact-icon"><i class="fas fa-envelope"></i></span>
+                        <span>info@Sarmiento.edu.ar</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Segunda columna -->
+            <div class="sas-footer-column">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="/kinder" class="sas-link">Educación Inicial</a></li>
+                    <li><a href="/primaria" class="sas-link">Educación Primaria</a></li>
+                    <li><a href="/secundaria" class="sas-link">Educación Secundaria</a></li>
+                    <li><a href="/contacto" class="sas-link">Contacto</a></li>
+                </ul>
+            </div>
+
+            <!-- Tercera columna -->
+            <div class="sas-footer-column">
+                <h4>¡Síguenos!</h4>
+                <div class="sas-footer-social">
+                    <a href="#" class="sas-footer-social-icon sas-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="sas-footer-social-icon sas-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="sas-footer-social-icon sas-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="sas-footer-social-icon sas-link"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Línea divisoria -->
+        <div class="sas-footer-divider"></div>
+
+        <!-- Parte inferior del footer -->
+        <div class="sas-container sas-footer-bottom">
+            <p>&copy; 2025 Domingo Faustino Sarmiento - Todos los derechos reservados</p>
+
+
+
+
+</html></body>    </footer>        </div>    </footer>
+
+    <script>
+        // Funcionalidad del menú móvil
+        document.addEventListener('DOMContentLoaded', () => {
+            const burger = document.getElementById('sas-nav-burger');
+            const menu = document.querySelector('.sas-nav-menu');
+
+            burger.addEventListener('click', () => {
+                burger.classList.toggle('active');
+                menu.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" width="device-width, initial-scale=1.0">
+    <title>Instituto Domingo Faustino Sarmiento</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --blue-primary: #1a2238;
+            --blue-secondary: #3a497b;
+            --grey-light: #f5f6fa;
+            --grey: #dbe2ef;
+            --grey-dark: #393e46;
+            --text-light: #ffffff;
+            --text-dark: #222831;
+        }
+        html, body {
+            margin: 0;
+            padding: 0;
+            background: var(--grey-light);
+            color: var(--text-dark);
+            font-family: 'Arial', sans-serif;
+        }
+        .contenedor-central {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 12px 8px 0 8px; /* Menos padding arriba */
+        }
+
+        /* Estilos para el nuevo menú de imágenes */
+        .image-menu-wrapper {
+            display: flex;
+            justify-content: center; /* Centra los items horizontalmente */
+            align-items: center; /* Alinea items verticalmente */
+            gap: 30px; /* Separación entre imágenes. Solicitaste 3cm (aprox. 113px), lo cual es bastante. 30px es un valor más común para web. Puedes ajustarlo a '113px' si es estrictamente necesario. */
+            padding: 20px 0; /* Espacio arriba y abajo del menú */
+            margin-bottom: 25px; /* Espacio antes del banner principal */
+            flex-wrap: wrap; /* Permite que los items pasen a la siguiente línea si no caben */
+        }
+
+        .image-menu-item {
+            text-decoration: none;
+            display: inline-block; 
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            border-radius: 12px; /* Bordes redondeados para el contenedor del enlace */
+            overflow: hidden; /* Para que la sombra no se corte bruscamente si la imagen no tiene border-radius */
+        }
+
+        .image-menu-item .menu-image {
+            display: block;
+            max-width: 180px; /* Ajusta el tamaño máximo de tus logos. Esto asegura que se vean completos. */
+            height: auto;     /* Mantiene la proporción de la imagen */
+            object-fit: contain; /* Asegura que la imagen se vea completa dentro de sus dimensiones */
+            border-radius: 8px; /* Bordes redondeados para las imágenes si quieres */
+            box-shadow: 0 3px 8px rgba(26,34,56,0.12); /* Sombra sutil inicial */
+            transition: filter 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .image-menu-item:hover {
+            transform: translateY(-5px) scale(1.05); /* Efecto de elevación y zoom */
+        }
+        
+        .image-menu-item:hover .menu-image {
+            filter: brightness(1.08); /* Hace la imagen un poco más brillante */
+            box-shadow: 0 6px 15px rgba(26,34,56,0.18); /* Sombra más pronunciada al hacer hover */
+        }
+
+        /* Ajustes responsivos para el menú de imágenes */
+        @media (max-width: 768px) {
+            .image-menu-wrapper {
+                gap: 20px; /* Reduce el gap en pantallas más pequeñas */
+                padding: 15px 0;
+                margin-bottom: 20px;
+            }
+            .image-menu-item .menu-image {
+                max-width: 140px; /* Imágenes más pequeñas en móvil para que quepan mejor horizontalmente */
+            }
+        }
+
+        /* Banner adaptado */
+        .hero-slider-wrapper {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            background: var(--grey-light);
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(26,34,56,0.10);
+            overflow: hidden;
+        }
+        .hero-slider-main {
+            position: relative;
+            overflow: hidden;
+            min-height: 220; /* Antes 320px */
+            height: 315px;     /* Antes 420px */
+            display: flex;
+            align-items: stretch;
+        }
+        .hero-slider-main .hero-slide {
+            width: 100%;
+            height: 100%;
+            display: none;
+            position: absolute;
+            left: 0; top: 0;
+            transition: opacity 0.5s;
+        }
+        .hero-slider-main .hero-slide.active {
+            display: block;
+            position: relative;
+            opacity: 1;
+            z-index: 2;
+            animation: fadeIn 0.7s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        .hero-slider-main .hero-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 18px;
+        }
+        .hero-slider-main .hero-caption {
+            position: absolute;
+            left: 18px;
+            bottom: 18px;
+            background: rgba(26,34,56,0.90);
+            color: #fff;
+            padding: 0.7rem 1.2rem;
+            border-radius: 0 10px 10px 0;
+            font-size: 1.05rem; /* Más chico */
+            font-weight: bold;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+            max-width: 70%;
+        }
+        .hero-slider-nav {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            right: 10px;
+            display: flex;
+            justify-content: space-between;
+            z-index: 10;
+            pointer-events: none;
+        }
+        .hero-slider-nav button {
+            pointer-events: all;
+            background: rgba(26,34,56,0.8);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .hero-slider-nav button:hover {
+            background: var(--blue-secondary);
+        }
+        @media (max-width: 900px) {
+            .contenedor-central {
+                padding: 8px 2vw 0 2vw;
+            }
+            .hero-slider-wrapper {
+                max-width: 98vw;
+            }
+            .hero-slider-main {
+                min-height: 120px;
+                height: 150px;
+            }
+            /* Ajustes responsivos para el menú de imágenes en pantallas muy pequeñas */
+            @media (max-width: 480px) {
+                .image-menu-wrapper {
+                    flex-direction: column; /* Apilar verticalmente */
+                    align-items: center;
+                    gap: 25px;
+                }
+                .image-menu-item .menu-image {
+                    max-width: 160px; /* Un poco más grandes cuando están apiladas */
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor-central">
+        <!-- NUEVO MENU DE IMAGENES -->
+        <div class="image-menu-wrapper">
+            <a href="/ruta-a-seccion-ingles" class="image-menu-item" title="Acceder a Nivel Inglés">
+                <img src="/imagenes/logo-ingles.png" alt="Logo Nivel Inglés" class="menu-image">
+            </a>
+            <a href="/ruta-a-seccion-aniversario" class="image-menu-item" title="Información del Aniversario">
+                <img src="/imagenes/logo aniversario.png" alt="Logo Aniversario Institucional" class="menu-image">
+            </a>
+            <a href="/ruta-a-otra-seccion" class="image-menu-item" title="Acceder a Otra Sección">
+                <!-- Reemplaza 'tu-tercera-imagen.png' con el nombre de tu archivo y actualiza el alt text -->
+                <img src="/imagenes/Sarmiento.png" alt="Logo Otra Sección Importante" class="menu-image">
+            </a>
+        </div>
+        <!-- BANNER PRINCIPAL -->
+        <div class="hero-slider-wrapper">
+            <div class="hero-slider-main">
+                <div class="hero-slide active">
+                    <img src="/imagenes/slider1.jpeg" alt="Estudiantes aprendiendo en un aula moderna" loading="lazy">
+                    <div class="hero-caption">
+                        Aprendizaje centrado en la persona y su comunidad
+                    </div>
+                </div>
+                <div class="hero-slide">
+                    <img src="/imagenes/slider-2.jpg" alt="Slide 2">
+                    <div class="hero-caption">
+                        Innovación y creatividad en cada paso
+                    </div>
+                </div>
+                <div class="hero-slide">
+                    <img src="/imagenes/slider-3.jpg" alt="Slide 3">
+                    <div class="hero-caption">
+                        Conexión con la comunidad global
+                    </div>
+                </div>
+                <div class="hero-slider-nav">
+                    <button class="slider-btn" onclick="prevSlide()">&#10094;</button>
+                    <button class="slider-btn" onclick="nextSlide()">&#10095;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Slider funcionalidad simple
+        const slides = document.querySelectorAll('.hero-slider-main .hero-slide');
+        let currentSlide = 0;
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+            currentSlide = index;
+        }
+        function nextSlide() {
+            showSlide((currentSlide + 1) % slides.length);
+        }
+        function prevSlide() {
+            showSlide((currentSlide - 1 + slides.length) % slides.length);
+        }
+        setInterval(nextSlide, 5000);
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>

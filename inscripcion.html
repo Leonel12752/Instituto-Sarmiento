@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Inscripción al Colegio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- Variables CSS: Define la paleta de colores, espaciados y radios de borde para una uniformidad total --- */
+        :root {
+            /* Colores */
+            --primary-color: #007bff;
+            --primary-hover-color: #0056b3;
+            --primary-active-color: #004085;
+
+            --secondary-color: #6c757d;
+            --secondary-hover-color: #5a6268;
+            --secondary-active-color: #495057;
+
+            --background-light: #eef2f7; /* Fondo general */
+            --background-white: #ffffff; /* Fondo de contenedores */
+            --border-color-default: #ccc; /* Borde predeterminado de inputs */
+            --border-color-error: #dc3545; /* Borde para campos con error */
+
+            --text-dark: #2c3e50;    /* Para títulos y texto principal */
+            --text-medium: #555;    /* Para descripciones y texto secundario */
+            --text-light: #444;     /* Para etiquetas de formulario */
+            --text-error: #dc3545; /* Color del texto de error */
+            --separator-color: #eee; /* Líneas divisorias */
+            
+            /* Sombras */
+            --shadow-light: rgba(0, 0, 0, 0.1);
+            --shadow-medium: rgba(0, 0, 0, 0.2);
+            --shadow-focus: rgba(0, 123, 255, 0.25);
+            --shadow-error-focus: rgba(220, 53, 69, 0.25); /* Sombra para campos con error al enfocar */
+
+            /* Espaciado: Un sistema modular para padding y margin */
+            --spacing-xs: 4px;  /* Extra pequeño */
+            --spacing-sm: 8px;  /* Pequeño */
+            --spacing-md: 16px; /* Medio */
+            --spacing-lg: 24px; /* Grande */
+            --spacing-xl: 32px; /* Extra grande */
+            --spacing-xxl: 48px; /* Doble extra grande */
+
+            /* Radios de borde: Consistencia en esquinas redondeadas */
+            --border-radius-sm: 4px;
+            --border-radius-md: 8px;
+            --border-radius-lg: 12px;
+
+            /* Tamaños de fuente base (em para escalabilidad) */
+            --font-size-base: 1em;
+            --font-size-sm: 0.9em;
+            --font-size-lg: 1.1em;
+            --font-size-xl: 1.2em;
+            --font-size-h1: 2.2em;
+            --font-size-h2: 1.6em;
+        }
+
+        /* --- Reseteo Básico y Aplicación Global de Box-Sizing --- */
+        * {
+            box-sizing: border-box; /* Incluye padding y borde en el cálculo del ancho/alto */
+        }
+
+        /* --- Estilos Generales del Body y Tipografía Base --- */
+        body {
+            font-family: 'Roboto', sans-serif; /* Fuente moderna */
+            margin: 0;
+            padding: var(--spacing-md);
+            background-color: var(--background-light);
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Alinea el contenido al inicio verticalmente */
+            min-height: 100vh; /* Asegura que ocupe al menos toda la altura de la ventana */
+        }
+
+        /* --- Contenedor Principal del Formulario --- */
+        .form-container {
+            background-color: var(--background-white);
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius-lg);
+            box-shadow: 0 var(--spacing-sm) var(--spacing-md) var(--shadow-light); /* Sombra consistente */
+            width: 100%;
+            max-width: 700px;
+            margin: var(--spacing-lg) auto; /* Centra el contenedor y añade margen uniforme */
+        }
+
+        /* --- Títulos y Descripciones --- */
+        h1 {
+            color: var(--text-dark);
+            font-size: var(--font-size-h1);
+            margin-bottom: var(--spacing-lg);
+            text-align: center;
+        }
+
+        /* Estilos unificados para h2 y legend para consistencia visual */
+        h2, .form-section legend { 
+            color: var(--text-dark);
+            font-size: var(--font-size-h2);
+            font-weight: 700; /* Bold de Roboto */
+            margin-top: var(--spacing-xl); 
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 2px solid var(--separator-color);
+            width: 100%;
+        }
+
+        p.description {
+            color: var(--text-medium);
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--spacing-lg);
+            text-align: center;
+        }
+
+        /* --- Estilos de los Grupos de Formulario (Fieldset y Form-Group) --- */
+        .form-section {
+            border: none; /* Elimina borde por defecto de fieldset */
+            margin-bottom: var(--spacing-md);
+            padding: 0; /* Reinicia padding por defecto de fieldset */
+        }
+
+        .form-group {
+            margin-bottom: var(--spacing-md);
+            text-align: left;
+            position: relative; /* Para posicionar mensajes de error */
+        }
+
+        .form-group label {
+            color: var(--text-light);
+            display: block; 
+            font-size: var(--font-size-base);
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .required-indicator {
+            color: var(--border-color-error); /* Color rojo para el asterisco de requerido */
+            margin-left: var(--spacing-xs);
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="date"],
+        .form-group input[type="tel"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: var(--spacing-md);
+            border: 1px solid var(--border-color-default);
+            border-radius: var(--border-radius-sm);
+            font-size: var(--font-size-base);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Estados de enfoque (focus) y validación */
+        .form-group input[type="text"]:focus,
+        .form-group input[type="email"]:focus,
+        .form-group input[type="date"]:focus,
+        .form-group input[type="tel"]:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px var(--shadow-focus);
+            outline: none; /* Se elimina el outline por defecto ya que se proporciona un box-shadow visual */
+        }
+
+        /* Estilo para campos inválidos */
+        .form-group input:invalid:not(:focus):not(:placeholder-shown),
+        .form-group select:invalid:not(:focus):not([value=""]):not(:placeholder-shown),
+        .form-group textarea:invalid:not(:focus):not(:placeholder-shown) {
+            border-color: var(--border-color-error);
+        }
+
+        .form-group input:invalid:focus,
+        .form-group select:invalid:focus,
+        .form-group textarea:invalid:focus {
+            border-color: var(--border-color-error);
+            box-shadow: 0 0 0 3px var(--shadow-error-focus);
+        }
+
+        .form-group textarea {
+            min-height: 80px;
+            resize: vertical; /* Permite redimensionar verticalmente */
+        }
+
+        /* Mensajes de error */
+        .error-message {
+            color: var(--text-error);
+            font-size: var(--font-size-sm);
+            margin-top: var(--spacing-xs);
+            display: block; /* Asegura que ocupe su propia línea */
+            min-height: var(--spacing-md); /* Espacio reservado para el mensaje de error */
+        }
+
+        /* --- Estilos de Botones: Clases base para uniformidad --- */
+        .button {
+            border: none;
+            border-radius: var(--border-radius-md);
+            cursor: pointer;
+            display: block; /* Por defecto ocupa todo el ancho */
+            font-size: var(--font-size-xl);
+            font-weight: 700;
+            padding: var(--spacing-md) var(--spacing-lg);
+            text-align: center;
+            text-decoration: none; /* Para enlaces que actúan como botones */
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+        }
+
+        .button-primary {
+            background-color: var(--primary-color);
+            color: var(--background-white);
+            margin-top: var(--spacing-xl);
+        }
+
+        .button-primary:hover {
+            background-color: var(--primary-hover-color);
+            transform: translateY(-2px);
+            box-shadow: 0 var(--spacing-xs) var(--spacing-sm) var(--shadow-medium);
+        }
+
+        .button-primary:active {
+            background-color: var(--primary-active-color);
+            transform: translateY(0);
+            box-shadow: 0 2px 5px var(--shadow-light);
+        }
+
+        .button-secondary {
+            background-color: var(--secondary-color);
+            color: var(--background-white);
+            display: inline-block; /* Para el botón "Volver Atrás" */
+            font-size: var(--font-size-base);
+            margin-top: var(--spacing-md);
+            padding: var(--spacing-sm) var(--spacing-md);
+            width: auto; /* Ancho automático para el botón secundario */
+        }
+
+        .button-secondary:hover {
+            background-color: var(--secondary-hover-color);
+            transform: translateY(-2px);
+            box-shadow: 0 var(--spacing-xs) var(--spacing-sm) var(--shadow-light);
+        }
+
+        .button-secondary:active {
+            background-color: var(--secondary-active-color);
+            transform: translateY(0);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* --- Contenedor del Botón "Volver Atrás" --- */
+        .back-button-wrapper {
+            margin-bottom: var(--spacing-lg);
+            text-align: center;
+        }
+
+        /* --- Feedback general del formulario (éxito/error) --- */
+        .form-feedback {
+            margin-top: var(--spacing-md);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius-sm);
+            text-align: center;
+            font-weight: 700;
+            display: none; /* Oculto por defecto */
+        }
+
+        .form-feedback.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .form-feedback.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+
+        /* --- Estilos para Responsividad --- */
+        @media (max-width: 768px) {
+            body {
+                padding: var(--spacing-md);
+            }
+            .form-container {
+                padding: var(--spacing-lg);
+                margin: var(--spacing-md) auto;
+            }
+
+            h1 {
+                font-size: 1.8em;
+                margin-bottom: var(--spacing-md);
+            }
+
+            h2, .form-section legend {
+                font-size: 1.4em;
+                margin-top: var(--spacing-xl);
+                margin-bottom: var(--spacing-md);
+            }
+
+            p.description {
+                font-size: var(--font-size-base); /* Ajuste para descripciones en móvil */
+                margin-bottom: var(--spacing-md);
+            }
+
+            .form-group {
+                margin-bottom: var(--spacing-md);
+            }
+
+            .form-group label {
+                font-size: var(--font-size-sm);
+                margin-bottom: var(--spacing-xs);
+            }
+
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                padding: var(--spacing-sm);
+                font-size: var(--font-size-sm);
+            }
+
+            .button {
+                padding: var(--spacing-sm) var(--spacing-md);
+                font-size: var(--font-size-base);
+                margin-top: var(--spacing-lg);
+            }
+            .button-secondary {
+                padding: var(--spacing-xs) var(--spacing-sm);
+                font-size: var(--font-size-sm);
+                margin-top: var(--spacing-md);
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: var(--spacing-sm);
+            }
+            .form-container {
+                padding: var(--spacing-md);
+                margin: var(--spacing-sm) auto;
+                border-radius: var(--border-radius-md);
+            }
+
+            h1 {
+                font-size: 1.5em;
+                margin-bottom: var(--spacing-md);
+            }
+
+            h2, .form-section legend {
+                font-size: 1.2em;
+                margin-top: var(--spacing-lg);
+                margin-bottom: var(--spacing-sm);
+            }
+
+            p.description {
+                font-size: 0.85em; /* Aún más pequeño en móviles muy pequeños */
+                margin-bottom: var(--spacing-md);
+            }
+
+            .form-group {
+                margin-bottom: var(--spacing-md);
+            }
+
+            .form-group label {
+                font-size: 0.85em;
+                margin-bottom: var(--spacing-xs);
+            }
+
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                padding: var(--spacing-xs);
+                font-size: 0.85em;
+            }
+
+            .button {
+                padding: var(--spacing-sm);
+                font-size: var(--font-size-base);
+                margin-top: var(--spacing-lg);
+            }
+            .button-secondary {
+                padding: var(--spacing-xs);
+                font-size: 0.8em;
+                margin-top: var(--spacing-md);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <div class="back-button-wrapper">
+            <a href="index.html" class="button button-secondary">Volver Atrás</a>
+        </div>
+        
+        <h1>Formulario de Inscripción</h1>
+        <p class="description">Por favor, completa los siguientes datos para inscribirte en nuestro colegio. Asegúrate de que toda la información sea correcta.</p>
+
+        <form id="enrollmentForm" action="procesar_inscripcion.php" method="POST" novalidate>
+            <fieldset class="form-section">
+                <legend>Datos del Alumno</legend>
+                <div class="form-group">
+                    <label for="nombre-alumno">Nombre Completo del Alumno:<span class="required-indicator">*</span></label>
+                    <input type="text" id="nombre-alumno" name="nombre_alumno" required aria-describedby="error-nombre-alumno">
+                    <span id="error-nombre-alumno" class="error-message" aria-live="polite"></span>
+                </div>
+                <div class="form-group">
+                    <label for="fecha-nacimiento">Fecha de Nacimiento:<span class="required-indicator">*</span></label>
+                    <input type="date" id="fecha-nacimiento" name="fecha_nacimiento" required aria-describedby="error-fecha-nacimiento">
+                    <span id="error-fecha-nacimiento" class="error-message" aria-live="polite"></span>
+                </div>
+                <div class="form-group">
+                    <label for="genero">Género:<span class="required-indicator">*</span></label>
+                    <select id="genero" name="genero" required aria-describedby="error-genero">
+                        <option value="">Selecciona</option>
+                        <option value="masculino">Masculino</option>
+                        <option value="femenino">Femenino</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                    <span id="error-genero" class="error-message" aria-live="polite"></span>
+                </div>
+                <div class="form-group">
+                    <label for="grado-inscribir">Grado al que desea inscribirse:<span class="required-indicator">*</span></label>
+                    <select id="grado-inscribir" name="grado_inscribir" required aria-describedby="error-grado-inscribir">
+                        <option value="">Selecciona un grado</option>
+                        <option value="inicial">Nivel Inicial</option>
+                        <option value="primero">1er Grado</option>
+                        <option value="segundo">2do Grado</option>
+                        <option value="tercero">3er Grado</option>
+                        <option value="cuarto">4to Grado</option>
+                        <option value="quinto">5to Grado</option>
+                        <option value="sexto">6to Grado</option>
+                        <option value="septimo">7mo Grado</option>
+                        <option value="octavo">8vo Grado</option>
+                        <option value="noveno">9no Grado</option>
+                        <option value="decimo">10mo Grado</option>
+                        <option value="onceavo">11vo Grado</option>
+                        <option value="doceavo">12vo Grado</option>
+                    </select>
+                    <span id="error-grado-inscribir" class="error-message" aria-live="polite"></span>
+                </div>
+            </fieldset>
+
+            <fieldset class="form-section">
+                <legend>Datos del Padre/Tutor</legend>
+                <div class="form-group">
+                    <label for="nombre-tutor">Nombre Completo del Padre/Tutor:<span class="required-indicator">*</span></label>
+                    <input type="text" id="nombre-tutor" name="nombre_tutor" required aria-describedby="error-nombre-tutor">
+                    <span id="error-nombre-tutor" class="error-message" aria-live="polite"></span>
+                </div>
+                <div class="form-group">
+                    <label for="email-tutor">Correo Electrónico:<span class="required-indicator">*</span></label>
+                    <input type="email" id="email-tutor" name="email_tutor" required aria-describedby="error-email-tutor">
+                    <span id="error-email-tutor" class="error-message" aria-live="polite"></span>
+                </div>
+                <div class="form-group">
+                    <label for="telefono-tutor">Teléfono de Contacto:<span class="required-indicator">*</span></label>
+                    <input type="tel" id="telefono-tutor" name="telefono_tutor" placeholder="Ej: +54 11 1234 5678" required aria-describedby="error-telefono-tutor">
+                    <span id="error-telefono-tutor" class="error-message" aria-live="polite"></span>
+                </div>
+                <div class="form-group">
+                    <label for="direccion">Dirección Completa:<span class="required-indicator">*</span></label>
+                    <textarea id="direccion" name="direccion" rows="3" required aria-describedby="error-direccion"></textarea>
+                    <span id="error-direccion" class="error-message" aria-live="polite"></span>
+                </div>
+            </fieldset>
+
+            <fieldset class="form-section">
+                <legend>Información Adicional</legend>
+                <div class="form-group">
+                    <label for="como-se-entero">¿Cómo se enteró de nosotros?</label>
+                    <select id="como-se-entero" name="como_se_entero">
+                        <option value="">Selecciona una opción</option>
+                        <option value="recomendacion">Recomendación</option>
+                        <option value="redes-sociales">Redes Sociales</option>
+                        <option value="busqueda-web">Búsqueda en la Web</option>
+                        <option value="publicidad">Publicidad</option>
+                        <option value="evento">Evento</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="comentarios">Comentarios o Preguntas (opcional):</label>
+                    <textarea id="comentarios" name="comentarios" rows="4"></textarea>
+                </div>
+            </fieldset>
+
+            <button type="submit" class="button button-primary">Enviar Solicitud de Inscripción</button>
+            <div id="form-feedback" class="form-feedback" aria-live="assertive"></div>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('enrollmentForm');
+            const formFeedback = document.getElementById('form-feedback');
+
+            // Deshabilita la validación por defecto del navegador para manejarla con JS
+            form.setAttribute('novalidate', true);
+
+            // --- Funciones de Validación Reutilizables ---
+            const validateField = (inputElement, errorMessageElement, validationFn, message) => {
+                if (!validationFn(inputElement.value)) {
+                    inputElement.classList.add('invalid');
+                    errorMessageElement.textContent = message;
+                    inputElement.setAttribute('aria-invalid', 'true');
+                    return false; // Indica que la validación falló
+                } else {
+                    inputElement.classList.remove('invalid');
+                    errorMessageElement.textContent = '';
+                    inputElement.setAttribute('aria-invalid', 'false');
+                    return true; // Indica que la validación fue exitosa
+                }
+            };
+
+            const isNotEmpty = (value) => value.trim() !== '';
+            const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+            // Puedes añadir más funciones de validación aquí, ej. isValidPhone, isValidDate, etc.
+
+            // --- Elementos de los campos para validación ---
+            const nombreAlumnoInput = document.getElementById('nombre-alumno');
+            const errorNombreAlumno = document.getElementById('error-nombre-alumno');
+            const emailTutorInput = document.getElementById('email-tutor');
+            const errorEmailTutor = document.getElementById('error-email-tutor');
+            // ... (añade referencias a todos los campos y sus spans de error)
+
+            // --- Asignar Event Listeners para validación en tiempo real (blur y input) ---
+            nombreAlumnoInput.addEventListener('blur', () => {
+                validateField(nombreAlumnoInput, errorNombreAlumno, isNotEmpty, 'El nombre del alumno es obligatorio.');
+            });
+            nombreAlumnoInput.addEventListener('input', () => {
+                // Validación "suave" al escribir: solo limpiar si ya es válido
+                if (isNotEmpty(nombreAlumnoInput.value)) {
+                    nombreAlumnoInput.classList.remove('invalid');
+                    errorNombreAlumno.textContent = '';
+                    nombreAlumnoInput.setAttribute('aria-invalid', 'false');
+                }
+            });
+
+            emailTutorInput.addEventListener('blur', () => {
+                validateField(emailTutorInput, errorEmailTutor, isValidEmail, 'Por favor, introduce un correo electrónico válido.');
+            });
+            emailTutorInput.addEventListener('input', () => {
+                if (isValidEmail(emailTutorInput.value)) {
+                    emailTutorInput.classList.remove('invalid');
+                    errorEmailTutor.textContent = '';
+                    emailTutorInput.setAttribute('aria-invalid', 'false');
+                }
+            });
+            // ... (añade event listeners para todos los campos requeridos)
+
+            // --- Manejo del envío del formulario ---
+            form.addEventListener('submit', async (event) => {
+                event.preventDefault(); // Evita el envío por defecto del navegador
+
+                let formIsValid = true;
+
+                // Realizar validación final para todos los campos al enviar
+                if (!validateField(nombreAlumnoInput, errorNombreAlumno, isNotEmpty, 'El nombre del alumno es obligatorio.')) {
+                    formIsValid = false;
+                }
+                if (!validateField(emailTutorInput, errorEmailTutor, isValidEmail, 'Por favor, introduce un correo electrónico válido.')) {
+                    formIsValid = false;
+                }
+                // ... (Añade todas las llamadas a validateField para CADA campo requerido aquí)
+                // Ejemplo para selects:
+                const generoSelect = document.getElementById('genero');
+                const errorGenero = document.getElementById('error-genero');
+                if (!validateField(generoSelect, errorGenero, isNotEmpty, 'Por favor, selecciona un género.')) {
+                    formIsValid = false;
+                }
+                const gradoInscribirSelect = document.getElementById('grado-inscribir');
+                const errorGradoInscribir = document.getElementById('error-grado-inscribir');
+                if (!validateField(gradoInscribirSelect, errorGradoInscribir, isNotEmpty, 'Por favor, selecciona el grado.')) {
+                    formIsValid = false;
+                }
+
+                // ... (Añade más validaciones para el resto de tus campos required:
+                // nombre-tutor, fecha-nacimiento, telefono-tutor, direccion)
+
+                if (formIsValid) {
+                    // Si el formulario es válido, puedes enviar los datos al servidor
+                    console.log('Formulario válido, enviando datos...');
+                    
+                    // Mostrar mensaje de "enviando..."
+                    showFeedback('Enviando solicitud...', 'info'); // Puedes agregar una clase 'info' al CSS
+
+                    try {
+                        // Aquí se haría la solicitud real al backend, por ejemplo, usando fetch
+                        const response = await fetch(form.action, {
+                            method: form.method,
+                            body: new FormData(form), // Envía los datos del formulario
+                            // headers: {
+                            //     'Content-Type': 'application/json' // Si tu backend espera JSON
+                            // }
+                        });
+
+                        if (response.ok) { // Si la respuesta HTTP es 2xx
+                            // const result = await response.json(); // Si el backend responde con JSON
+                            showFeedback('¡Inscripción enviada con éxito! Nos pondremos en contacto pronto.', 'success');
+                            form.reset(); // Limpia el formulario
+                            // Opcional: Redirigir a una página de confirmación
+                            // window.location.href = 'confirmacion.html';
+                        } else {
+                            // Manejar errores de respuesta del servidor (ej. 4xx, 5xx)
+                            const errorText = await response.text(); // O .json() si el error es un JSON
+                            console.error('Error al enviar el formulario:', errorText);
+                            showFeedback('Hubo un error al enviar tu solicitud. Por favor, inténtalo de nuevo.', 'error');
+                        }
+                    } catch (error) {
+                        console.error('Error de red o del servidor:', error);
+                        showFeedback('No se pudo conectar con el servidor. Verifica tu conexión e inténtalo de nuevo.', 'error');
+                    }
+                    
+                } else {
+                    showFeedback('Por favor, corrige los errores en el formulario antes de enviar.', 'error');
+                    // Enfoca el primer campo con error para mejorar la UX
+                    const firstInvalidField = form.querySelector('.form-group .invalid');
+                    if (firstInvalidField) {
+                        firstInvalidField.focus();
+                    }
+                }
+            });
+
+            // Función para mostrar mensajes de feedback global del formulario
+            function showFeedback(message, type) {
+                formFeedback.textContent = message;
+                formFeedback.className = 'form-feedback'; // Reinicia las clases
+                formFeedback.classList.add(type);
+                formFeedback.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>St. Andrew's Scots School</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sas-blue: #1a2238;
+            --sas-blue-light: #3a497b;
+            --sas-grey-light: #f5f6fa;
+            --sas-grey: #dbe2ef;
+            --sas-grey-dark: #393e46;
+            --sas-footer-bg: #1a2238;
+            --sas-text-light: #ffffff;
+            --sas-text-dark: #222831;
+            --sas-red: #ff002b;
+            --sas-purple: #7c3aed;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body.sas-body {
+            font-family: 'Arial', sans-serif;
+            color: var(--sas-text-dark);
+            line-height: 1.6;
+        }
+
+        a.sas-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        a.sas-link:focus {
+            outline: 2px solid #FFD700;
+        }
+
+        .sas-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Top Bar Styles */
+        .sas-top-bar {
+            background: linear-gradient(90deg, var(--sas-blue), var(--sas-blue-light));
+            color: var(--sas-text-light);
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .sas-top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .sas-logo img {
+            height: 40px;
+        }
+
+        /* Modern Navigation Styles */
+.sas-nav-modern {
+    font-family: 'Montserrat', Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    background: transparent;
+}
+
+.sas-modern-menu {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sas-modern-link {
+    position: relative;
+    color: var(--sas-text-light);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 8px 0;
+    transition: color 0.25s;
+    text-decoration: none;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.sas-modern-link::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--sas-grey-dark) 0%, var(--sas-blue-light) 100%);
+    transform: scaleX(0);
+    transition: transform 0.3s cubic-bezier(.4,0,.2,1);
+    transform-origin: right;
+    border-radius: 2px;
+}
+
+.sas-modern-link:hover,
+.sas-modern-link.sas-active {
+    color: var(--sas-grey);
+}
+
+.sas-modern-link:hover::after,
+.sas-modern-link.sas-active::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.sas-modern-dropdown {
+    position: relative;
+}
+
+.sas-modern-dropdown .arrow {
+    display: inline-block;
+    margin-left: 6px;
+    border: solid #FFD700;
+    border-width: 0 2px 2px 0;
+    padding: 3px;
+    transform: rotate(45deg);
+    transition: border-color 0.2s;
+}
+
+.sas-modern-dropdown:hover .arrow {
+    border-color: #ff002b;
+}
+
+.sas-modern-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 110%;
+    left: 0;
+    min-width: 210px;
+    background: var(--sas-grey-light);
+    box-shadow: 0 8px 32px rgba(0,57,121,0.12);
+    border-radius: 10px;
+    z-index: 100;
+    animation: fadeInMenu 0.3s;
+}
+
+@keyframes fadeInMenu {
+    from { opacity: 0; transform: translateY(10px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
+.sas-modern-dropdown:hover .sas-modern-dropdown-menu {
+    display: block;
+}
+
+.sas-modern-dropdown-menu li {
+    width: 100%;
+}
+
+.sas-modern-dropdown-menu .sas-modern-link {
+    color: var(--sas-blue);
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    display: block;
+    border-radius: 0;
+    background: none;
+    transition: background 0.2s, color 0.2s;
+}
+
+.sas-modern-dropdown-menu .sas-modern-link:hover {
+    background: var(--sas-grey);
+    color: var(--sas-blue-light);
+}
+
+.sas-modern-burger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 38px;
+    height: 38px;
+    cursor: pointer;
+    margin-left: 18px;
+    z-index: 200;
+}
+.sas-modern-burger span {
+    display: block;
+    width: 28px;
+    height: 4px;
+    margin: 4px 0;
+    background: var(--sas-text-light);
+    border-radius: 2px;
+    transition: all 0.3s;
+}
+.sas-modern-burger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.sas-modern-burger.active span:nth-child(2) {
+    opacity: 0;
+}
+.sas-modern-burger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .sas-modern-menu {
+        gap: 12px;
+    }
+}
+@media (max-width: 768px) {
+    .sas-nav-modern {
+        position: fixed;
+        top: 0; right: 0;
+        height: 100vh;
+        width: 80vw;
+        max-width: 340px;
+        background: #003979;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 80px 28px 0 28px;
+        box-shadow: -2px 0 16px rgba(0,0,0,0.08);
+        transform: translateX(100%);
+        transition: transform 0.3s cubic-bezier(.4,0,.2,1);
+        z-index: 1001;
+    }
+    .sas-nav-modern.active {
+        transform: translateX(0);
+    }
+    .sas-modern-menu {
+        flex-direction: column;
+        width: 100%;
+        gap: 0;
+    }
+    .sas-modern-link {
+        font-size: 1.1rem;
+        padding: 18px 0;
+        width: 100%;
+    }
+    .sas-modern-dropdown-menu {
+        position: static;
+        box-shadow: none;
+        background: #f0f2f7;
+        border-radius: 0 0 10px 10px;
+        margin-bottom: 10px;
+    }
+    .sas-modern-burger {
+        display: flex;
+    }
+}
+
+        /* SASS Video Section */
+        .sas-sass-section {
+            margin: 2rem 0;
+            background-color: var(--sas-grey-light);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .sas-sass-section .sas-container {
+            position: relative;
+        }
+
+        .sas-sass-video {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .sas-sass-video img {
+            width: 100%;
+            display: block;
+        }
+
+        .sas-sass-video .sas-play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background-color: red;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+
+        /* Educational Levels Section */
+        .sas-educational-levels {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin: 50px auto;
+            max-width: 1200px;
+            background: var(--sas-grey-light);
+                    margin-top: -60px; /* Ajusta este valor según necesites */
+
+        }
+
+        .sas-level-card {
+            position: relative;
+            width: 24%;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: var(--sas-text-light);
+        }
+
+        .sas-level-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .sas-level-card-content {
+            padding: 20px;
+            text-align: center;
+            background-color: var(--sas-blue);
+            color: var(--sas-text-light);
+            height: auto;
+        }
+
+        .sas-level-card-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .sas-level-card-content p {
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .sas-level-card-content .sas-btn {
+            display: inline-block;
+            padding: 10px 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: var(--sas-blue);
+            background-color: white;
+            border-radius: 30px;
+            border: 2px solid white;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .sas-level-card-content .sas-btn:hover {
+            background-color: var(--sas-red);
+            color: white;
+        }
+
+        .sas-level-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .sas-level-card.sas-kinder .sas-level-card-content {
+            background-color: #D1C4E9; /* color original para Kinder */
+        }
+        .sas-level-card.sas-primary .sas-level-card-content {
+            background-color: #A5D6A7; /* color original para Primaria */
+        }
+        .sas-level-card.sas-secondary .sas-level-card-content {
+            background-color: #90CAF9; /* color original para Secundaria */
+        }
+        .sas-level-card.sas-superior .sas-level-card-content {
+            background-color: #FFD54F; /* color original para Superior */
+        }
+
+        /* Values Section */
+        .sas-values-section {
+            background-color: var(--sas-blue);
+            color: var(--sas-text-light);
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .sas-values-title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: var(--sas-text-light);
+        }
+
+        .sas-values-keywords {
+            font-size: 3rem;
+            font-weight: bold;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+        }
+
+        .sas-values-keywords .sas-integrity {
+            color: var(--sas-purple);
+        }
+        .sas-values-keywords .sas-respect {
+            color: #FF8C00;
+        }
+        .sas-values-keywords .sas-responsibility {
+            color: var(--sas-red);
+        }
+
+        .sas-values-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--sas-text-light);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Learning Journey */
+        .sas-learning-journey {
+            background-color: var(--sas-grey);
+            color: var(--sas-blue);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        .sas-learning-journey h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .sas-learning-journey p {
+            max-width: 80%;
+            margin-bottom: 1.5rem;
+        }
+        .sas-learning-journey .sas-btn {
+            background-color: var(--sas-blue);
+            color: var(--sas-text-light);
+        }
+        .sas-accent-squares {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            display: flex;
+        }
+        .sas-accent-square {
+            width: 20px;
+            height: 20px;
+            margin-left: 5px;
+        }
+        .sas-accent-square:nth-child(1) {
+            background-color: #4CAF50;
+        }
+        .sas-accent-square:nth-child(2) {
+            background-color: #2196F3;
+        }
+
+        /* SASS Section (Título inferior) */
+        .sas-sass-section:last-of-type {
+            text-align: center;
+            background-color: var(--sas-grey);
+            padding: 1.5rem 0;
+            margin-bottom: 3rem;
+        }
+        .sas-sass-section h3 {
+            font-size: 1.3rem;
+            color: var(--sas-blue);
+        }
+
+        /* Social Media Section */
+        .sas-social-section {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .sas-social-title {
+            margin-bottom: 2rem;
+            font-size: 1.3rem;
+            color: var(--sas-blue);
+        }
+        .sas-social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 2rem;
+        }
+        .sas-social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--sas-blue);
+            color: var(--sas-text-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        .sas-social-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .sas-social-card {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+        }
+        .sas-social-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        /* Partners Section */
+        .sas-partners-section {
+            margin-bottom: 3rem;
+        }
+        .sas-partners-title {
+            font-size: 1rem;
+            color: var(--sas-grey-dark);
+            margin-bottom: 1rem;
+        }
+        .sas-partners-logos {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .sas-partner-logo {
+            max-width: 100px;
+            margin: 1rem;
+        }
+
+        /* Footer */
+        .sas-footer {
+            background-color: var(--sas-footer-bg);
+            color: var(--sas-text-light);
+            padding: 3rem 0 1rem;
+        }
+        .sas-footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 2rem;
+        }
+        .sas-footer-column h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        .sas-footer-column h4::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--sas-grey);
+            margin-top: 8px;
+        }
+        .sas-footer-column ul {
+            list-style: none;
+        }
+        .sas-footer-column ul li {
+            margin-bottom: 10px;
+        }
+        .sas-contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        .sas-contact-icon {
+            margin-right: 10px;
+            color: var(--sas-blue-light);
+        }
+        .sas-footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .sas-footer-social-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: var(--sas-grey-light);
+            color: var(--sas-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+        .sas-footer-bottom {
+            border-top: 1px solid var(--sas-grey);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.8rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .sas-educational-levels {
+                flex-direction: column;
+                align-items: center;
+            }
+            .sas-footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .sas-social-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 768px) {
+            .sas-educational-levels {
+                flex-direction: column;
+                align-items: center;
+            }
+            .sas-footer-content {
+                grid-template-columns: 1fr;
+            }
+            .sas-social-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Back to Top Button */
+        #sas-back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--sas-blue);
+            color: var(--sas-text-light);
+            border: none;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Welcome Modal */
+        .welcome-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0; top: 0;
+            width: 100vw; height: 100vh;
+            background: rgba(0, 57, 121, 0.45);
+            justify-content: center;
+            align-items: center;
+        }
+        .welcome-modal.active {
+            display: flex;
+        }
+        .welcome-modal-content {
+            background: #fff;
+            border-radius: 18px;
+            padding: 2.2rem 2rem 2rem 2rem;
+            max-width: 540px;
+            width: 95%;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+            position: relative;
+            animation: slideInModal 0.4s;
+        }
+        .welcome-modal-close {
+            position: absolute;
+            top: 18px; right: 22px;
+            font-size: 2rem;
+            color: #003979;
+            cursor: pointer;
+            font-weight: bold;
+            transition: color 0.2s;
+        }
+        .welcome-modal-close:hover {
+            color: #ff002b;
+        }
+
+        .sas-banner-iframe {
+            display: block;
+            width: 100%;
+            height: 600px;
+            border: none;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        /* Video Section Styles */
+        .sas-video-section {
+            background: linear-gradient(135deg, #e3eafc 0%, #f9f9f9 100%);
+            padding: 60px 0 60px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .sas-video-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .sas-video-logo {
+            max-width: 320px;
+            width: 90vw;
+            height: auto;
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(0,57,121,0.12);
+            background: white;
+            padding: 32px;
+            transition: transform 0.3s;
+        }
+
+        .sas-video-logo:hover {
+            transform: scale(1.04) rotate(-2deg);
+            box-shadow: 0 12px 40px rgba(0,57,121,0.18);
+        }
+
+        @media (max-width: 600px) {
+            .sas-video-section {
+                padding: 30px 0;
+            }
+            .sas-video-logo {
+                padding: 12px;
+                max-width: 90vw;
+            }
+        }
+    </style>
+</head>
+<body class="sas-body">
+    <!-- Top Bar -->
+    <div class="sas-top-bar">
+        <div class="sas-container sas-top-bar-content">
+            <div class="sas-logo">
+                <a href="/" class="sas-link">
+                    <img src="/imagenes/logo.png" alt="St. Andrew's Scots School Logo">
+                </a>
+            </div>
+            <nav class="sas-nav-modern" id="sas-nav-modern">
+                <ul class="sas-modern-menu">
+                    <li><a href="#sas-welcome" class="sas-modern-link sas-active">Propuesta Educativa</a></li>
+                    <li class="sas-modern-dropdown">
+                        <a href="#sas-educational-levels" class="sas-modern-link">Niveles Educativos <span class="arrow"></span></a>
+                        <ul class="sas-modern-dropdown-menu">
+                            <li><a href="/kinder" class="sas-modern-link">Jardín de Infantes</a></li>
+                            <li><a href="/primaria" class="sas-modern-link">Educación Primaria</a></li>
+                            <li><a href="/secundaria" class="sas-modern-link">Nivel Secundario</a></li>
+                        </ul>
+                    </li>
+                    <li class="sas-modern-dropdown">
+                        <a href="#sas-english-program" class="sas-modern-link">Programa de Inglés <span class="arrow"></span></a>
+                        <ul class="sas-modern-dropdown-menu">
+                            <li><a href="/examenes-internacionales" class="sas-modern-link">Exámenes Internacionales</a></li>
+                            <li><a href="/experiencias-internacionales" class="sas-modern-link">Experiencias Internacionales</a></li>
+                            <li><a href="/actividades-complementarias" class="sas-modern-link">Actividades Complementarias</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/deportes" class="sas-modern-link">Deportes</a></li>
+                    <li><a href="/comunidad" class="sas-modern-link">Comunidad</a></li>
+                    <li><a href="/admisiones" class="sas-modern-link">Admisiones</a></li>
+                    <li><a href="/contacto" class="sas-modern-link">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="sas-modern-burger" id="sas-modern-burger" aria-label="Abrir menú móvil">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </div>
+    <!-- Agrega el iframe aquí -->
+    <iframe 
+        src="banner.html" 
+        class="sas-banner-iframe"
+        style="width:100%;height:600px;border:none;display:block;margin:0 auto;padding:0;" 
+        title="Banner Sarmiento"
+        loading="lazy"
+        allowfullscreen>
+    </iframe>
+
+<!-- TARJETAS !-->
+        <section id="sas-educational-levels" class="sas-container sas-educational-levels" data-aos="fade-up">
+            <div class="sas-level-card sas-kinder" data-aos="zoom-in">
+                <img src="/imagenes/Kinder-Block-512x347.jpg" alt="Nivel Kinder">
+                <div class="sas-level-card-content">
+                    <h3>Kinder</h3>
+                    <p>Creemos en la educación integral del niño y en el desarrollo de todos los aspectos de su crecimiento.</p>
+                    <a href="/kinder" class="sas-btn sas-link">VER MÁS</a>
+                </div>
+            </div>
+            <div class="sas-level-card sas-primary" data-aos="zoom-in" data-aos-delay="100">
+                <img src="/imagenes/Primary-Block-1-512x347.jpg" alt="Nivel Primaria">
+                <div class="sas-level-card-content">
+                    <h3>Primaria</h3>
+                    <p>Las experiencias de aprendizaje de nuestros alumnos durante sus años de Primaria están llenas de maravillas y descubrimientos.</p>
+                    <a href="/primaria" class="sas-btn sas-link">VER MÁS</a>
+                </div>
+            </div>
+            <div class="sas-level-card sas-secondary" data-aos="zoom-in" data-aos-delay="200">
+                <img src="/imagenes/Secondary-Block-512x347.jpg" alt="Nivel Secundaria">
+                <div class="sas-level-card-content">
+                    <h3>Secundaria</h3>
+                    <p>Queremos que nuestros estudiantes sean proactivos, reflexivos y estén motivados a trabajar en temas significativos que importan a la humanidad.</p>
+                    <a href="/secundaria" class="sas-btn sas-link">VER MÁS</a>
+                </div>
+            </div>
+            <div class="sas-level-card sas-superior" data-aos="zoom-in" data-aos-delay="300">
+                <img src="/imagenes/superior.jpg" alt="Nivel Superior">
+                <div class="sas-level-card-content">
+                    <h3>Superior</h3>
+                    <p>En el Nivel Superior, buscamos formar profesionales con pensamiento crítico y habilidades para enfrentar los desafíos globales.</p>
+                    <a href="/superior" class="sas-btn sas-link">VER MÁS</a>
+                </div>
+            </div>
+        </section>
+
+    <!-- Welcome Modal -->
+    <div id="sas-modal" class="welcome-modal">
+        <div class="welcome-modal-content">
+            <span class="welcome-modal-close" id="sas-modal-close">&times;</span>
+            <div id="sas-modal-body"></div>
+        </div>
+    </div>
+    <!-- Main Content -->
+    <main>
+        <!-- SASS Video Section -->
+        <section class="sas-video-section">
+            <div class="sas-video-container">
+                <img src="/imagenes/logo.png" alt="St. Andrew's Logo" class="sas-video-logo">
+            </div>
+        </section>
+
+        
+
+        <!-- Values Section -->
+        <section class="sas-values-section">
+            <div class="sas-container">
+                <h3 class="sas-values-title">Valores</h3>
+                <div class="sas-values-keywords">
+                    <span class="sas-integrity">Integridad,</span>
+                    <span class="sas-respect">Respeto</span>
+                    <span class="sas-responsibility">y Responsabilidad</span>
+                </div>
+                <p class="sas-values-description">
+                    Como comunidad que busca el crecimiento y desarrollo de todos sus miembros dentro y fuera de la Escuela, 
+                    San Andrés reafirma su compromiso de enaltecer determinados ideales a través de todo su currículo de estudios 
+                    como así también en las actividades administrativas y organizacionales.
+                </p>
+            </div>
+        </section>
+
+        <!-- Learning Journey Section -->
+        <section class="sas-container sas-learning-journey" data-aos="fade-up">
+            <h3 data-aos="fade-right">Recorrido de Aprendizaje</h3>
+            <p data-aos="fade-left">
+                Nuestro enfoque educativo favorece el aprendizaje activo, donde cada estudiante desarrolla habilidades críticas y creativas que le permitirán enfrentar los desafíos del futuro.
+            </p>
+            <a href="/aprendizaje" class="sas-btn sas-link" data-aos="fade-up">Descubrir más</a>
+            <div class="sas-accent-squares" data-aos="zoom-in">
+                <div class="sas-accent-square"></div>
+                <div class="sas-accent-square"></div>
+            </div>
+        </section>
+
+        <!-- SASS Section -->
+        <section class="sas-sass-section">
+            <div class="sas-container">
+                <h3>Esto es SASS</h3>
+            </div>
+        </section>
+
+        <!-- Social Media Section -->
+        <section class="sas-container sas-social-section">
+            <h3 class="sas-social-title">¡Sigamos!</h3>
+            <div class="sas-social-icons">
+                <a href="#" class="sas-social-icon sas-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="sas-social-icon sas-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="sas-social-icon sas-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="sas-social-icon sas-link"><i class="fab fa-youtube"></i></a>
+            </div>
+            <div class="sas-social-grid">
+                <div class="sas-social-card">
+                    <img src="/api/placeholder/300/300" alt="Social media post">
+                </div>
+                <div class="sas-social-card">
+                    <img src="/api/placeholder/300/300" alt="Social media post">
+                </div>
+                <div class="sas-social-card">
+                    <img src="/api/placeholder/300/300" alt="Social media post">
+                </div>
+                <div class="sas-social-card">
+                    <img src="/api/placeholder/300/300" alt="Social media post">
+                </div>
+            </div>
+        </section>
+
+        <!-- Partners Section -->
+        <section class="sas-container sas-partners-section">
+            <h4 class="sas-partners-title">Afiliaciones Institucionales</h4>
+            <div class="sas-partners-logos">
+                <img src="/api/placeholder/100/50" alt="Logo partner" class="sas-partner-logo">
+                <img src="/api/placeholder/100/50" alt="Logo partner" class="sas-partner-logo">
+                <img src="/api/placeholder/100/50" alt="Logo partner" class="sas-partner-logo">
+                <img src="/api/placeholder/100/50" alt="Logo partner" class="sas-partner-logo">
+                <img src="/api/placeholder/100/50" alt="Logo partner" class="sas-partner-logo">
+            </div>
+        </section>
+    </main>
+
+    <!-- Back to Top Button -->
+    <button id="sas-back-to-top" aria-label="Volver arriba">↑</button>
+
+    <!-- Footer -->
+    <footer class="sas-footer">
+        <div class="sas-container sas-footer-content">
+            <div class="sas-footer-column">
+                <h4>Kinder: Primero y Segundo año</h4>
+                <ul>
+                    <li class="sas-contact-item">
+                        <span class="sas-contact-icon"><i class="fas fa-map-marker-alt"></i></span>
+                        <span>Calle Principal 123, Buenos Aires</span>
+                    </li>
+                    <li class="sas-contact-item">
+                        <span class="sas-contact-icon"><i class="fas fa-phone"></i></span>
+                        <span>+54 11 4555-1234</span>
+                    </li>
+                    <li class="sas-contact-item">
+                        <span class="sas-contact-icon"><i class="fas fa-envelope"></i></span>
+                        <span>kinder@standrews.edu.ar</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="sas-footer-column">
+                <h4>Secundaria</h4>
+                <ul>
+                    <li class="sas-contact-item">
+                        <span class="sas-contact-icon"><i class="fas fa-map-marker-alt"></i></span>
+                        <span>Avenida Central 456, Buenos Aires</span>
+                    </li>
+                    <li class="sas-contact-item">
+                        <span class="sas-contact-icon"><i class="fas fa-phone"></i></span>
+                        <span>+54 11 4555-5678</span>
+                    </li>
+                    <li class="sas-contact-item">
+                        <span class="sas-contact-icon"><i class="fas fa-envelope"></i></span>
+                        <span>secundaria@standrews.edu.ar</span>
+                    </li>
+                </ul>
+                <div class="sas-footer-social">
+                    <a href="#" class="sas-footer-social-icon sas-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="sas-footer-social-icon sas-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="sas-footer-social-icon sas-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="sas-footer-social-icon sas-link"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="sas-footer-column">
+                <h4>¡Sigámonos!</h4>
+                <ul>
+                    <li><a href="#" class="sas-link">Facebook</a></li>
+                    <li><a href="#" class="sas-link">Instagram</a></li>
+                    <li><a href="#" class="sas-link">Twitter</a></li>
+                    <li><a href="#" class="sas-link">YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="sas-container sas-footer-bottom">
+            <p>&copy; 2025 St. Andrew's Scots School - Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple mobile menu toggle
+        document.querySelector('.sas-modern-burger').addEventListener('click', function() {
+            const nav = document.getElementById('sas-nav-modern');
+            nav.classList.toggle('sas-active');
+        });
+
+        // Modern menu burger toggle
+        const burger = document.getElementById('sas-modern-burger');
+        const nav = document.getElementById('sas-nav-modern');
+        burger.addEventListener('click', function() {
+            burger.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
+        // Cierra el menú al hacer click fuera (opcional)
+        window.addEventListener('click', function(e) {
+            if (!nav.contains(e.target) && !burger.contains(e.target)) {
+                nav.classList.remove('active');
+                burger.classList.remove('active');
+            }
+        });
+
+        // Back to Top Button functionality
+        const backToTop = document.getElementById('sas-back-to-top');
+        window.addEventListener('scroll', () => {
+            backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
+        });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Welcome Modal functionality
+        window.addEventListener('message', function(event) {
+            // Solo acepta mensajes del iframe local
+            if (event.data && event.data.type === 'showWelcomeModal') {
+                document.getElementById('sas-modal-body').innerHTML = event.data.html;
+                document.getElementById('sas-modal').classList.add('active');
+            }
+        });
+
+        // Cerrar modal
+        document.getElementById('sas-modal-close').onclick = function() {
+            document.getElementById('sas-modal').classList.remove('active');
+        };
+        window.onclick = function(event) {
+            const modal = document.getElementById('sas-modal');
+            if (event.target === modal) {
+                modal.classList.remove('active');
+            }
+        };
+    </script>
+    <!-- AOS JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            disable: 'mobile',
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon-32x32.png" type="/favicon.ico">
+    <meta name="description" content="Instituto Domingo Faustino Sarmiento - Educación integral y valores para el futuro.">
+    <meta name="keywords" content="educación, valores, aprendizaje, comunidad, Sarmiento">
+    <meta name="author" content="Instituto Sarmiento">
+    <title>Aniversario 75 Años - Instituto Domingo Faustino Sarmiento</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos del archivo original */
+        :root {
+            --sas-blue: #1a2238;
+            --sas-blue-light: #3a497b;
+            --sas-grey-light: #f5f6fa;
+            --sas-grey: #dbe2ef;
+            --sas-grey-dark: #393e46;
+            --sas-footer-bg: #1a2238;
+            --sas-text-light: #ffffff;
+            --sas-text-dark: #222831;
+            --sas-red: #ff002b;
+            --sas-purple: #7c3aed;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif; /* Usando Montserrat para todo */
+        }
+
+        body.sas-body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--sas-text-dark);
+            line-height: 1.6;
+        }
+
+        a.sas-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        a.sas-link:focus {
+            outline: 2px solid #FFD700;
+        }
+
+        .sas-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Estilos del menú */
+        .sas-new-nav {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background: linear-gradient(90deg, var(--sas-blue), var(--sas-blue-light));
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .sas-nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .sas-logo-link img {
+            height: 50px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .sas-logo-link:hover img {
+            transform: scale(1.1);
+        }
+
+        .sas-nav-menu {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .sas-nav-link {
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: 600; /* Usando Montserrat semibold */
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: color 0.3s ease-in-out, background 0.3s ease-in-out;
+            border-radius: 8px;
+        }
+
+        .sas-nav-link:hover {
+            background: var(--sas-red);
+            color: #ffffff;
+        }
+
+        .sas-nav-dropdown {
+            position: relative;
+        }
+
+        .sas-dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            z-index: 100;
+            min-width: 200px;
+        }
+
+        .sas-dropdown-link {
+            display: block;
+            padding: 10px 20px;
+            color: var(--sas-blue);
+            font-size: 0.9rem;
+            font-weight: 600; /* Usando Montserrat semibold */
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+
+        .sas-dropdown-link:hover {
+            background: var(--sas-blue-light);
+            color: #ffffff;
+        }
+
+        .sas-nav-dropdown:hover .sas-dropdown-menu {
+            display: block;
+        }
+
+        .sas-nav-burger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+        }
+
+        .sas-nav-burger span {
+            display: block;
+            width: 30px;
+            height: 4px;
+            margin: 5px 0;
+            background: #ffffff;
+            border-radius: 2px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .sas-nav-burger.active span:nth-child(1) {
+            transform: translateY(10px) rotate(45deg);
+        }
+
+        .sas-nav-burger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .sas-nav-burger.active span:nth-child(3) {
+            transform: translateY(-10px) rotate(-45deg);
+        }
+
+        @media (max-width: 768px) {
+            .sas-nav-menu {
+                display: none;
+                flex-direction: column;
+                background: var(--sas-blue);
+                position: fixed;
+                top: 0;
+                right: 0;
+                width: 80%;
+                height: 100%;
+                padding: 20px;
+                box-shadow: -4px 0 12px rgba(0, 0, 0, 0.1);
+                z-index: 1000;
+            }
+
+            .sas-nav-menu.active {
+                display: flex;
+            }
+
+            .sas-nav-link {
+                padding: 15px;
+                text-align: center;
+            }
+
+            .sas-nav-burger {
+                display: flex;
+            }
+        }
+
+        /* Efecto titilar en rojo para INSCRIPCIONES */
+        .sas-nav-link.inscripciones {
+            animation: titilar 1s infinite;
+        }
+
+        @keyframes titilar {
+            0%, 100% {
+                background-color: var(--sas-red);
+                color: #ffffff;
+            }
+            50% {
+                background-color: transparent;
+                color: var(--sas-red);
+            }
+        }
+
+        /* Estilos del footer */
+        .sas-footer {
+            background-color: var(--sas-footer-bg);
+            color: var(--sas-text-light);
+            padding: 3rem 0 1rem;
+            text-align: center;
+        }
+
+        .sas-footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 2rem;
+        }
+
+        .sas-footer-column {
+            flex: 1;
+            min-width: 250px;
+            padding: 0 15px;
+        }
+
+        .sas-footer-column h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            position: relative;
+            font-weight: 700; /* Montserrat bold */
+        }
+
+        .sas-footer-column h4::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--sas-grey);
+            margin-top: 8px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .sas-footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sas-footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .sas-footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .sas-footer-social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--sas-grey-light);
+            color: var(--sas-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .sas-footer-social-icon:hover {
+            background-color: var(--sas-blue-light);
+            transform: scale(1.1);
+        }
+
+        .sas-footer-divider {
+            height: 1px;
+            background-color: var(--sas-grey);
+            margin: 1rem 0;
+        }
+
+        .sas-footer-bottom {
+            font-size: 0.9rem;
+            color: var(--sas-grey-light);
+        }
+
+        /* Estilos del Staff (mantengo los originales) */
+        .sas-staff {
+            background-color: var(--sas-grey-light);
+            padding: 4rem 0;
+        }
+
+        .sas-staff-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--sas-blue);
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .sas-staff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            justify-items: center;
+        }
+
+        .sas-staff-card {
+            background-color: var(--sas-footer-bg);
+            color: var(--sas-text-light);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            max-width: 300px;
+        }
+
+        .sas-staff-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .sas-staff-icon {
+            font-size: 3rem;
+            color: var(--sas-red);
+            margin-bottom: 1rem;
+        }
+
+        .sas-staff-role {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .sas-staff-name {
+            font-size: 1.2rem;
+            color: var(--sas-grey-light);
+        }
+
+        /* Estilos del botón Volver Atrás (mantengo los originales) */
+        .sas-back-button-container {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .sas-back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--sas-red);
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 8px; 
+            transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+
+        .sas-back-button:hover {
+            background-color: #e60024;
+            transform: translateY(-2px);
+        }
+
+        /* Nuevos estilos para el contenido de aniversario */
+        .sas-section {
+            padding: 60px 0;
+            background-color: var(--sas-grey-light);
+            border-bottom: 1px solid var(--sas-grey);
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.05); /* Efecto de sombra interior */
+        }
+
+        .sas-section:nth-child(even) {
+            background-color: #ffffff;
+        }
+
+        .sas-section-title {
+            font-size: 2.8rem; /* Tamaño de fuente más grande */
+            color: var(--sas-blue);
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: 700; /* Montserrat bold */
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            position: relative;
+        }
+
+        .sas-section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--sas-red);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .sas-content-block {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .sas-content-block p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--sas-grey-dark);
+            text-align: justify;
+            max-width: 800px;
+        }
+
+        .sas-content-block h3 {
+            font-size: 1.8rem;
+            color: var(--sas-blue-light);
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .sas-content-block h3::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background-color: var(--sas-purple);
+            margin: 8px auto 0;
+        }
+
+        .sas-image-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .sas-image-container img {
+           max-width: 10%; /* Reduce el tamaño al 55% del original */
+        height: auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            object-fit: cover;
+        }
+
+        .sas-image-container img:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+        }
+
+        .sas-level-section {
+            padding: 40px 0;
+            background-color: #ffffff;
+            border-bottom: 1px solid var(--sas-grey);
+        }
+
+        .sas-level-section:nth-child(odd) {
+            background-color: var(--sas-grey-light);
+        }
+
+        .sas-level-title {
+            font-size: 2.2rem;
+            color: var(--sas-blue);
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 700;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .sas-level-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--sas-purple);
+            margin: 10px auto 0;
+        }
+
+        .sas-level-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding-top: 20px;
+        }
+
+        .sas-level-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            padding: 25px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .sas-level-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .sas-level-card h4 {
+            font-size: 1.4rem;
+            color: var(--sas-blue-light);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .sas-level-card p {
+            font-size: 1rem;
+            color: var(--sas-grey-dark);
+            line-height: 1.6;
+        }
+
+        .sas-highlight {
+            font-weight: 600;
+            color: var(--sas-red);
+        }
+
+        /* Estilos del slider */
+        .sas-slider {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .sas-slider-wrapper {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .sas-slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .sas-slide img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 12px;
+        }
+
+        .sas-slider_nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .sas-slider-btn {
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+
+        .sas-slider-btn:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        @media (max-width: 768px) {
+            .sas-section-title {
+                font-size: 2rem;
+            }
+            .sas-level-title {
+                font-size: 1.8rem;
+            }
+            .sas-footer-content {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body class="sas-body">
+    <header>
+        <nav class="sas-new-nav">
+            <div class="sas-container sas-nav-content">
+                <a href="/" class="sas-logo-link">
+                    <img src="/imagenes/Sarmiento.png" alt="Logo del Instituto Sarmiento" class="sas-logo-image">
+                </a>
+                <ul class="sas-nav-menu">
+                    <li><a href="#aniversario" class="sas-nav-link">ANIVERSARIO</a></li>
+                    <li class="sas-nav-dropdown">
+                        <a href="#formacion" class="sas-nav-link">FORMACIÓN</a>
+                        <ul class="sas-dropdown-menu">
+                            <li><a href="#inicial" class="sas-dropdown-link">EDUCACIÓN INICIAL</a></li>
+                            <li><a href="#primaria" class="sas-dropdown-link">EDUCACIÓN PRIMARIA</a></li>
+                            <li><a href="#secundaria" class="sas-dropdown-link">EDUCACIÓN SECUNDARIA</a></li>
+                            <li><a href="#ingles" class="sas-dropdown-link">INGLÉS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/deportes" class="sas-nav-link">STAFF</a></li>
+                    <li><a href="/comunidad" class="sas-nav-link inscripciones">INSCRIPCIONES</a></li>
+                    <li><a href="/contacto" class="sas-nav-link">CONTACTO</a></li>
+                </ul>
+                <button class="sas-nav-burger" id="sas-nav-burger" aria-label="Abrir menú móvil">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="aniversario" class="sas-section">
+            <div class="sas-container">
+                <h2 class="sas-section-title">ANIVERSARIO 75 AÑOS (1949–2024)</h2>
+                <div class="sas-image-container">
+                </div>
+                <div class="sas-content-block">
+                    <h3>Proyecto institucional</h3>
+                    <p>A lo largo del 2024 el colegio llevó a cabo un proyecto institucional que involucró a docentes, padres y alumnos de todos los niveles.</p>
+                    <p>El eje transversal con el que los grupos de estudiantes trabajaron se llamó <span class="sas-highlight">“VIVIR CON LOS OTROS”</span> y tuvo como objetivo fomentar valores como la convivencia, la tolerancia y la participación ciudadana.</p>
+                    <p>Los resultados se vieron en una gran Feria abierta a la totalidad de la comunidad educativa, al inicio de la cual se hizo un acto oficial con presencia de las autoridades educativas de la provincia de Buenos Aires y municipales.</p>
+                    <div class="sas-image-container">
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="formacion" class="sas-section">
+            <div class="sas-container">
+                <h2 class="sas-section-title">FORMACIÓN</h2>
+                <div id="inicial" class="sas-level-section">
+                    <h3 class="sas-level-title">NIVEL INICIAL</h3>
+                    <div class="sas-image-container">
+                        <img src="https://via.placeholder.com/500x250?text=Nivel+Inicial" alt="Imagen de Nivel Inicial">
+                    </div>
+                    <div class="sas-level-grid">
+                        <div class="sas-level-card">
+                            <div class="sas-slider">
+                                <div class="sas-slider-wrapper">
+                                    <div class="sas-slide active">
+                                        <img src="/imagenes/1.png" alt="Imagen 1">
+                                    </div>
+                                    <div class="sas-slide">
+                                        <img src="/imagenes/2.png" alt="Imagen 2">
+                                    </div>
+                                </div>
+                                <div class="sas-slider-nav">
+                                    <button class="sas-slider-btn prev" onclick="prevSlide(this)">&#10094;</button>
+                                    <button class="sas-slider-btn next" onclick="nextSlide(this)">&#10095;</button>
+                                </div>
+                            </div>
+                            <h4>Jardín Maternal</h4>
+                            <p><span class="sas-highlight">Salas de 1 y 2 años:</span> "Explorando a través de los sentidos"</p>
+                        </div>
+                        <div class="sas-level-card">
+                            <div class="sas-slider">
+    <div class="sas-slider-wrapper">
+        <div class="sas-slide active">
+            <img src="/imagenes/1.png" alt="Imagen 1">
+        </div>
+        <div class="sas-slide">
+            <img src="/imagenes/2.png" alt="Imagen 2">
+        </div>
+    </div>
+    <div class="sas-slider-nav">
+        <button class="sas-slider-btn prev" onclick="prevSlide(this)">&#10094;</button>
+        <button class="sas-slider-btn next" onclick="nextSlide(this)">&#10095;</button>
+    </div>
+</div>
+                            <h4>Jardín de Infantes - Salas de 3 años</h4>
+                            <p>"Explorando emociones"</p>
+                            <p>Aprender a sentir, expresar y compartir…</p>
+                        </div>
+                        <div class="sas-level-card">
+                            <div class="sas-slider">
+    <div class="sas-slider-wrapper">
+        <div class="sas-slide active">
+            <img src="/imagenes/1.png" alt="Imagen 1">
+        </div>
+        <div class="sas-slide">
+            <img src="/imagenes/2.png" alt="Imagen 2">
+        </div>
+    </div>
+    <div class="sas-slider-nav">
+        <button class="sas-slider-btn prev" onclick="prevSlide(this)">&#10094;</button>
+        <button class="sas-slider-btn next" onclick="nextSlide(this)">&#10095;</button>
+    </div>
+</div>
+                            <h4>Jardín de Infantes - Salas de 4 años</h4>
+                            <p>"El cuartel de bomberos"</p>
+                            <p>Aprendiendo sobre seguridad y servicio.</p>
+                        </div>
+                        <div class="sas-level-card">
+                            <div class="sas-slider">
+    <div class="sas-slider-wrapper">
+        <div class="sas-slide active">
+            <img src="/imagenes/1.png" alt="Imagen 1">
+        </div>
+        <div class="sas-slide">
+            <img src="/imagenes/2.png" alt="Imagen 2">
+        </div>
+    </div>
+    <div class="sas-slider-nav">
+        <button class="sas-slider-btn prev" onclick="prevSlide(this)">&#10094;</button>
+        <button class="sas-slider-btn next" onclick="nextSlide(this)">&#10095;</button>
+    </div>
+</div>
+                            <h4>Jardín de Infantes - Salas de 5 años</h4>
+                            <p>"Formando ciudadanos responsables"</p>
+                            <p>Aprendiendo sobre normas y seguridad vial.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="primaria" class="sas-level-section">
+                    <h3 class="sas-level-title">NIVEL PRIMARIO</h3>
+                    <div class="sas-image-container">
+                        <img src="https://via.placeholder.com/500x250?text=Nivel+Primario" alt="Imagen de Nivel Primario">
+                    </div>
+                    <div class="sas-level-grid">
+                        <div class="sas-level-card">
+                            <div class="sas-slider">
+                <div class="sas-slider-wrapper">
+                    <div class="sas-slide active">
+                        <img src="/imagenes/primaria1.png" alt="Imagen 1">
+                    </div>
+                    <div class="sas-slide">
+                        <img src="/imagenes/primaria2.png" alt="Imagen 2">
+                    </div>
+                </div>
+                <div class="sas-slider-nav">
+                    <button class="sas-slider-btn prev" onclick="prevSlide(this)">&#10094;</button>
+                    <button class="sas-slider-btn next" onclick="nextSlide(this)">&#10095;</button>
+                </div>
+            </div>
+            <h4>¡Cuántos deseos!</h4>
+            <p>Llegó el 75° aniversario de la escuela. Estudiantes y familias nos dejaron sus deseos.</p>
+                        </div>
+                        <div class="sas-level-card">
+                            <div class="sas-slider">
+                <div class="sas-slider-wrapper">
+                    <div class="sas-slide active">
+                        <img src="/imagenes/primaria3.png" alt="Imagen 1">
+                    </div>
+                    <div class="sas-slide">
+                        <img src="/imagenes/primaria4.png" alt="Imagen 2">
+                    </div>
+                </div>
+                <div class="sas-slider-nav">
+                    <button class="sas-slider-btn prev" onclick="prevSlide(this)">&#10094;</button>
+                    <button class="sas-slider-btn next" onclick="nextSlide(this)">&#10095;</button>
+                </div>
+            </div>
+            <h4>¡De carrera!</h4>
+            <p><span class="sas-highlight">1° año</span> participó de una carrera muy especial. Vivenciaron la importancia de la cooperación para alcanzar una meta, siempre mediante el trabajo en equipo. ¡Todo un desafío!</p>
+                        </div>
+                        <div class="sas-level-card">
+                            <div class="sas-slider">
+                <div class="sas-slider-wrapper">
+                    <div class="sas-slide active">
+                        <img src="/imagenes/primaria5.png" alt="Imagen 1">
+                    </div>
+                    <div class="sas-slide">
+                        <img src="/imagenes/primaria6.png" alt="Imagen 2">
+                    </div>
+                </div>
+                <div class="sas-slider-nav">
+                    <button class="sas-slider-btn prev" onclick="prevSlide(this)">&#10094;</button>
+                    <button class="sas-slider-btn next" onclick="nextSlide(this)">&#10095;</button>
+                </div>
+            </div>
+            <h4>¡Emocionate!</h4>
+            <p><span class="sas-highlight">2° año</span>, junto a sus familias, escucharon diferentes audios y capturaron sus emociones.</p>
+                        </div>
+                        <div class="sas-level-card">
+                            <div class="sas-slider">
+                <div class="sas-slider-wrapper">
+                    <div class="sas-slide active">
+                        <img src="/imagenes/primaria7.png" alt="Imagen 1">
+                    </div>
+                    <div class="sas-slide">
+                        <img src="/imagenes/primaria8.png" alt="Imagen 2">
+                    </div>
+                </div>
+                <div class="sas-slider-nav">
+                    <button class="sas-slider-btn prev" onclick="prevSlide(this)">&#10094;</button>
+                    <button class="sas-slider-btn next" onclick="nextSlide(this)">&#10095;</button>
+                </div>
+            </div>
+            <h4>¡Soy yo!</h4>
+            <p><span class="sas-highlight">3° y 4° año</span> trabajaron sobre su identidad, pusieron a prueba cuánto nos conocemos.</p>
+                        </div>
+                        <div class="sas-level-card">
+                            <div class="sas-slider">
+                <div class="sas-slider-wrapper">
+                    <div class="sas-slide active">
+                        <img src="/imagenes/primaria9.png" alt="Imagen 1">
+                    </div>
+                    <div class="sas-slide">
+                        <img src="/imagenes/primaria10.png" alt="Imagen 2">
+                    </div>
+                </div>
+                <div class="sas-slider-nav">
+                    <button class="sas-slider-btn prev" onclick="prevSlide(this)">&#10094;</button>
+                    <button class="sas-slider-btn next" onclick="nextSlide(this)">&#10095;</button>
+                </div>
+            </div>
+            <h4>La red social</h4>
+            <p><span class="sas-highlight">5° año</span>, con sus familias, compartieron los aspectos que conforman nuestra identidad colectiva.</p>
+                        </div>
+                        <div class="sas-level-card">
+                            <div class="sas-slider">
+                <div class="sas-slider-wrapper">
+                    <div class="sas-slide active">
+                        <img src="/imagenes/primaria11.png" alt="Imagen 1">
+                    </div>
+                    <div class="sas-slide">
+                        <img src="/imagenes/primaria12.png" alt="Imagen 2">
+                    </div>
+                </div>
+                <div class="sas-slider-nav">
+                    <button class="sas-slider-btn prev" onclick="prevSlide(this)">&#10094;</button>
+                    <button class="sas-slider-btn next" onclick="nextSlide(this)">&#10095;</button>
+                </div>
+            </div>
+            <h4>¡Conectados!</h4>
+            <p><span class="sas-highlight">6° año</span> reflexionó sobre el alcance de las redes sociales y su uso responsable.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="ingles" class="sas-level-section">
+                    <h3 class="sas-level-title">INGLÉS</h3>
+                    <div class="sas-image-container">
+                        <img src="https://via.placeholder.com/500x250?text=Clases+de+Ingles" alt="Imagen de Clases de Inglés">
+                    </div>
+                    <div class="sas-level-grid">
+                        <div class="sas-level-card">
+                            <div class="sas-slider">
+                <div class="sas-slider-wrapper">
+                    <div class="sas-slide active">
+                        <img src="/imagenes/ingles1.png" alt="Imagen 1">
+                    </div>
+                    <div class="sas-slide">
+                        <img src="/imagenes/ingles2.png" alt="Imagen 2">
+                    </div>
+                </div>
+                <div class="sas-slider-nav">
+                    <button class="sas-slider-btn prev" onclick="prevSlide(this)">&#10094;</button>
+                    <button class="sas-slider-btn next" onclick="nextSlide(this)">&#10095;</button>
+                </div>
+            </div>
+            <h4>Concert:</h4>
+            <p>Un gran espectáculo en el área de inglés que evocó emociones, sentimientos y grandes expresiones artísticas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="secundaria" class="sas-level-section">
+                    <h3 class="sas-level-title">NIVEL SECUNDARIO</h3>
+                    <div class="sas-image-container">
+                        <img src="https://via.placeholder.com/500x250?text=Nivel+Secundario" alt="Imagen de Nivel Secundario">
+                    </div>
+                    <div class="sas-level-grid">
+                        <div class="sas-level-card">
+                            <div class="sas-slider">
+                <div class="sas-slider-wrapper">
+                    <div class="sas-slide active">
+                        <img src="/imagenes/secundaria1.png" alt="Imagen 1">
+                    </div>
+                    <div class="sas-slide">
+                        <img src="/imagenes/secundaria2.png" alt="Imagen 2">
+                    </div>
+                </div>
+                <div class="sas-slider-nav">
+                    <button class="sas-slider-btn prev" onclick="prevSlide(this)">&#10094;</button>
+                    <button class="sas-slider-btn next" onclick="nextSlide(this)">&#10095;</button>
+                </div>
+            </div>
+            <h4>El Himno del Sarmiento: Identidad y pertenencia</h4>
+            <p>Se trabajó con la canción institucional, una valiosa oportunidad para evocar la memoria episódica musical colectiva.</p>
+                        </div>
+                        <div class="sas-level-card">
+                            <div class="sas-slider">
+                <div class="sas-slider-wrapper">
+                    <div class="sas-slide active">
+                        <img src="/imagenes/secundaria3.png" alt="Imagen 1">
+                    </div>
+                    <div class="sas-slide">
+                        <img src="/imagenes/secundaria4.png" alt="Imagen 2">
+                    </div>
+                </div>
+                <div class="sas-slider-nav">
+                    <button class="sas-slider-btn prev" onclick="prevSlide(this)">&#10094;</button>
+                    <button class="sas-slider-btn next" onclick="nextSlide(this)">&#10095;</button>
+                </div>
+            </div>
+            <h4>Panel fotográfico</h4>
+            <p>Cada familia aportó imágenes de su pasado escolar, muchas de las cuales datan de los inicios del colegio. En muchos casos, abuelos, padres y niños han compartido las mismas aulas, y se los convocó a rearmar una historia que nos tiene a todos como protagonistas.</p>
+                        </div>
+                        <div class="sas-level-card">
+                            <div class="sas-slider">
+                <div class="sas-slider-wrapper">
+                    <div class="sas-slide active">
+                        <img src="/imagenes/secundaria5.png" alt="Imagen 1">
+                    </div>
+                    <div class="sas-slide">
+                        <img src="/imagenes/secundaria6.png" alt="Imagen 2">
+                    </div>
+                </div>
+                <div class="sas-slider-nav">
+                    <button class="sas-slider-btn prev" onclick="prevSlide(this)">&#10094;</button>
+                    <button class="sas-slider-btn next" onclick="nextSlide(this)">&#10095;</button>
+                </div>
+            </div>
+            <h4>Juegos del recuerdo</h4>
+            <p>Los juegos han ido variando a lo largo del tiempo. Los estudiantes se abocaron a rescatar este aspecto de la historia escolar.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="sas-back-button-container">
+            <a href="/index.html" class="sas-back-button">Volver al Inicio</a>
+        </div>
+    </main>
+
+    <footer class="sas-footer">
+        <div class="sas-container sas-footer-content">
+            <div class="sas-footer-column">
+                <h4>Contacto</h4>
+                <ul>
+                    <li class="sas-contact-item">
+                        <span class="sas-contact-icon"><i class="fas fa-map-marker-alt"></i></span>
+                        <span>Italia 1170, San Antonio de Padua</span>
+                    </li>
+                    <li class="sas-contact-item">
+                        <span class="sas-contact-icon"><i class="fas fa-phone"></i></span>
+                        <span>+54 11 4555-1234</span>
+                    </li>
+                    <li class="sas-contact-item">
+                        <span class="sas-contact-icon"><i class="fas fa-envelope"></i></span>
+                        <span>info@Sarmiento.edu.ar</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sas-footer-column">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="#inicial" class="sas-link">Educación Inicial</a></li>
+                    <li><a href="#primaria" class="sas-link">Educación Primaria</a></li>
+                    <li><a href="#secundaria" class="sas-link">Educación Secundaria</a></li>
+                    <li><a href="/contacto" class="sas-link">Contacto</a></li>
+                </ul>
+            </div>
+
+            <div class="sas-footer-column">
+                <h4>¡Síguenos!</h4>
+                <div class="sas-footer-social">
+                    <a href="#" class="sas-footer-social-icon sas-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="sas-footer-social-icon sas-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="sas-footer-social-icon sas-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="sas-footer-social-icon sas-link"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="sas-footer-divider"></div>
+
+        <div class="sas-container sas-footer-bottom">
+            <p>&copy; 2025 Domingo Faustino Sarmiento - Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <script>
+        // Funcionalidad del menú móvil
+        document.addEventListener('DOMContentLoaded', () => {
+            const burger = document.getElementById('sas-nav-burger');
+            const menu = document.querySelector('.sas-nav-menu');
+
+            burger.addEventListener('click', () => {
+                burger.classList.toggle('active');
+                menu.classList.toggle('active');
+            });
+
+            // Cerrar menú móvil al hacer clic en un enlace (opcional)
+            const navLinks = document.querySelectorAll('.sas-nav-menu .sas-nav-link, .sas-dropdown-menu .sas-dropdown-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (menu.classList.contains('active')) {
+                        burger.classList.remove('active');
+                        menu.classList.remove('active');
+                    }
+                });
+            });
+
+            // Scroll suave para los enlaces de anclaje
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+
+        // Funcionalidad del slider
+        function prevSlide(button) {
+            const slider = button.closest('.sas-slider');
+            const wrapper = slider.querySelector('.sas-slider-wrapper');
+            const slides = wrapper.children;
+            const activeSlide = slider.querySelector('.sas-slide.active');
+            let index = Array.from(slides).indexOf(activeSlide);
+
+            slides[index].classList.remove('active');
+            index = (index - 1 + slides.length) % slides.length;
+            slides[index].classList.add('active');
+            wrapper.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        function nextSlide(button) {
+            const slider = button.closest('.sas-slider');
+            const wrapper = slider.querySelector('.sas-slider-wrapper');
+            const slides = wrapper.children;
+            const activeSlide = slider.querySelector('.sas-slide.active');
+            let index = Array.from(slides).indexOf(activeSlide);
+
+            slides[index].classList.remove('active');
+            index = (index + 1) % slides.length;
+            slides[index].classList.add('active');
+            wrapper.style.transform = `translateX(-${index * 100}%)`;
+        }
+    </script>
+</body>
+</html>

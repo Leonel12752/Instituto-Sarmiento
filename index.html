@@ -1,0 +1,1645 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Educación integral en San Antonio de Padua. Instituto Domingo Faustino Sarmiento: Inicial, Primaria, Secundaria y Superior.">
+  <meta name="keywords" content="educación, instituto sarmiento, inicial, primaria, secundaria, superior, padua, buenos aires">
+  <meta name="author" content="Instituto Sarmiento">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="es">
+  <meta property="og:title" content="Instituto Sarmiento - Educación con valores">
+  <meta property="og:description" content="Educación integral en San Antonio de Padua. Instituto Domingo Faustino Sarmiento.">
+  <meta property="og:image" content="https://sarmiento.unaux.com/imagenes/Sarmiento.png">
+  <meta property="og:url" content="https://sarmiento.unaux.com">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://sarmiento.unaux.com/">
+  <link rel="apple-touch-icon" href="/imagenes/Sarmiento.png">
+  <link rel="icon" href="favicon-32x32.png" type="image/png">
+  <title>Instituto Domingo Faustino Sarmiento | Educación en Padua</title>
+
+<link rel="icon" href="favicon-32x32.png" type="/favicon.ico">
+
+    <meta name="description" content="Instituto Domingo Faustino Sarmiento - Educación integral y valores para el futuro.">
+    <meta name="keywords" content="educación, valores, aprendizaje, comunidad, Sarmiento">
+    <meta name="author" content="Instituto Sarmiento">
+    <title>Institución Sarmiento</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sas-blue: #1a2238;
+            --sas-blue-light: #3a497b;
+            --sas-grey-light: #f5f6fa;
+            --sas-grey: #dbe2ef;
+            --sas-grey-dark: #393e46;
+            --sas-footer-bg: #1a2238;
+            --sas-text-light: #ffffff;
+            --sas-text-dark: #222831;
+            --sas-red: #ff002b;
+            --sas-purple: #7c3aed;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body.sas-body {
+            font-family: 'Arial', sans-serif;
+            color: var(--sas-text-dark);
+            line-height: 1.6;
+        }
+
+        a.sas-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        a.sas-link:focus {
+            outline: 2px solid #FFD700;
+        }
+
+        .sas-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Top Bar Styles */
+        .sas-top-bar {
+            background: linear-gradient(90deg, var(--sas-blue), var(--sas-blue-light));
+            color: var(--sas-text-light);
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .sas-top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .sas-logo img {
+            height: 40px;
+        }
+
+        /* Modern Navigation Styles */
+        .sas-nav-modern {
+            font-family: 'Montserrat', Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            background: transparent;
+        }
+
+        .sas-modern-menu {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .sas-modern-link {
+            position: relative;
+            color: var(--sas-text-light);
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            padding: 8px 0;
+            transition: color 0.25s;
+            text-decoration: none;
+            display: inline-block;
+            overflow: hidden;
+        }
+
+        .sas-modern-link::after {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0; bottom: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--sas-grey-dark) 0%, var(--sas-blue-light) 100%);
+            transform: scaleX(0);
+            transition: transform 0.3s cubic-bezier(.4,0,.2,1);
+            transform-origin: right;
+            border-radius: 2px;
+        }
+
+        .sas-modern-link:hover,
+        .sas-modern-link.sas-active {
+            color: var(--sas-grey);
+        }
+
+        .sas-modern-link:hover::after,
+        .sas-modern-link.sas-active::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .sas-modern-dropdown {
+            position: relative;
+        }
+
+        .sas-modern-dropdown .arrow {
+            display: inline-block;
+            margin-left: 6px;
+            border: solid #FFD700;
+            border-width: 0 2px 2px 0;
+            padding: 3px;
+            transform: rotate(45deg);
+            transition: border-color 0.2s;
+        }
+
+        .sas-modern-dropdown:hover .arrow {
+            border-color: #ff002b;
+        }
+
+        .sas-modern-dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 110%;
+            left: 0;
+            min-width: 210px;
+            background: var(--sas-grey-light);
+            box-shadow: 0 8px 32px rgba(0,57,121,0.12);
+            border-radius: 10px;
+            z-index: 100;
+            animation: fadeInMenu 0.3s;
+        }
+
+        @keyframes fadeInMenu {
+            from { opacity: 0; transform: translateY(10px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+
+        .sas-modern-dropdown:hover .sas-modern-dropdown-menu {
+            display: block;
+        }
+
+        .sas-modern-dropdown-menu li {
+            width: 100%;
+        }
+
+        .sas-modern-dropdown-menu .sas-modern-link {
+            color: var(--sas-blue);
+            padding: 12px 20px;
+            font-size: 1rem;
+            font-weight: 600;
+            display: block;
+            border-radius: 0;
+            background: none;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .sas-modern-dropdown-menu .sas-modern-link:hover {
+            background: var(--sas-grey);
+            color: var(--sas-blue-light);
+        }
+
+        .sas-modern-burger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 38px;
+            height: 38px;
+            cursor: pointer;
+            margin-left: 18px;
+            z-index: 200;
+        }
+        .sas-modern-burger span {
+            display: block;
+            width: 28px;
+            height: 4px;
+            margin: 4px 0;
+            background: var(--sas-text-light);
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+        .sas-modern-burger.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+        .sas-modern-burger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .sas-modern-burger.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .sas-modern-menu {
+                gap: 12px;
+            }
+        }
+        @media (max-width: 768px) {
+            .sas-nav-modern {
+                position: fixed;
+                top: 0; right: 0;
+                height: 100vh;
+                width: 80vw;
+                max-width: 340px;
+                background: #003979;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                padding: 80px 28px 0 28px;
+                box-shadow: -2px 0 16px rgba(0,0,0,0.08);
+                transform: translateX(100%);
+                transition: transform 0.3s cubic-bezier(.4,0,.2,1);
+                z-index: 1001;
+            }
+            .sas-nav-modern.active {
+                transform: translateX(0);
+            }
+            .sas-modern-menu {
+                flex-direction: column;
+                width: 100%;
+                gap: 0;
+            }
+            .sas-modern-link {
+                font-size: 1.1rem;
+                padding: 18px 0;
+                width: 100%;
+            }
+            .sas-modern-dropdown-menu {
+                position: static;
+                box-shadow: none;
+                background: #f0f2f7;
+                border-radius: 0 0 10px 10px;
+                margin-bottom: 10px;
+            }
+            .sas-modern-burger {
+                display: flex;
+            }
+        }
+        /* SASS Video Section */
+        .sas-sass-section {
+            margin: 2rem 0;
+            background-color: var(--sas-grey-light);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .sas-sass-section .sas-container {
+            position: relative;
+        }
+
+        .sas-sass-video {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .sas-sass-video img {
+            width: 100%;
+            display: block;
+        }
+
+        .sas-sass-video .sas-play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background-color: red;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+
+        /* Educational Levels Section */
+        .sas-educational-levels {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin: 50px auto;
+            max-width: 1200px;
+            background: var(--sas-grey-light);
+        }
+
+        .sas-level-card {
+            position: relative;
+            width: 24%;
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: var(--sas-text-light);
+            box-shadow: 0 4px 16px rgba(26,34,56,0.12), 0 1.5px 6px rgba(26,34,56,0.08);
+            transition: box-shadow 0.35s cubic-bezier(.4,0,.2,1), transform 0.35s cubic-bezier(.4,0,.2,1);
+        }
+        .sas-level-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 12px 36px rgba(26,34,56,0.18), 0 2px 8px rgba(26,34,56,0.12);
+        }
+
+        .sas-level-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .sas-level-card-content {
+            padding: 20px;
+            text-align: center;
+            background-color: var(--sas-blue);
+            color: var(--sas-text-light);
+            height: auto;
+        }
+
+        .sas-level-card-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .sas-level-card-content p {
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .sas-level-card-content .sas-btn {
+            display: inline-block;
+            padding: 10px 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: var(--sas-blue);
+            background-color: white;
+            border-radius: 30px;
+            border: 2px solid white;
+            box-shadow: 0 2px 8px rgba(26,34,56,0.10);
+            transition: background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.2s;
+        }
+        .sas-level-card-content .sas-btn:hover {
+            background-color: var(--sas-red);
+            color: white;
+            box-shadow: 0 6px 18px rgba(26,34,56,0.18);
+            transform: scale(1.04);
+        }
+        .sas-level-card-content .sas-btn:active {
+            transform: scale(0.97);
+        }
+
+        .sas-level-card.sas-kinder .sas-level-card-content {
+            background-color: #D1C4E9; /* color original para Kinder */
+        }
+        .sas-level-card.sas-primary .sas-level-card-content {
+            background-color: #A5D6A7; /* color original para Primaria */
+        }
+        .sas-level-card.sas-secondary .sas-level-card-content {
+            background-color: #90CAF9; /* color original para Secundaria */
+        }
+        .sas-level-card.sas-superior .sas-level-card-content {
+            background-color: #FFD54F; /* color original para Superior */
+        }
+
+        /* Values Section */
+        .sas-values-section {
+            background-color: var(--sas-blue);
+            color: var(--sas-text-light);
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .sas-values-title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: var(--sas-text-light);
+        }
+
+        .sas-values-keywords {
+            font-size: 3rem;
+            font-weight: bold;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+        }
+
+        .sas-values-keywords .sas-integrity {
+            color: var(--sas-purple);
+        }
+        .sas-values-keywords .sas-respect {
+            color: #FF8C00;
+        }
+        .sas-values-keywords .sas-responsibility {
+            color: var(--sas-red);
+        }
+
+        .sas-values-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--sas-text-light);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Learning Journey */
+        .sas-learning-journey {
+            background-color: var(--sas-grey);
+            color: var(--sas-blue);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        .sas-learning-journey h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .sas-learning-journey p {
+            max-width: 80%;
+            margin-bottom: 1.5rem;
+        }
+        .sas-learning-journey .sas-btn {
+            background-color: var(--sas-blue);
+            color: var(--sas-text-light);
+        }
+        .sas-accent-squares {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            display: flex;
+        }
+        .sas-accent-square {
+            width: 20px;
+            height: 20px;
+            margin-left: 5px;
+        }
+        .sas-accent-square:nth-child(1) {
+            background-color: #4CAF50;
+        }
+        .sas-accent-square:nth-child(2) {
+            background-color: #2196F3;
+        }
+
+        /* SASS Section (Título inferior) */
+        .sas-sass-section:last-of-type {
+            text-align: center;
+            background-color: var(--sas-grey);
+            padding: 1.5rem 0;
+            margin-bottom: 3rem;
+        }
+        .sas-sass-section h3 {
+            font-size: 1.3rem;
+            color: var(--sas-blue);
+        }
+
+        /* Social Media Section */
+        .sas-social-section {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .sas-social-title {
+            margin-bottom: 2rem;
+            font-size: 1.3rem;
+            color: var(--sas-blue);
+        }
+        .sas-social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 2rem;
+        }
+        .sas-social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--sas-blue);
+            color: var(--sas-text-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        .sas-social-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .sas-social-card {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(26,34,56,0.10);
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+        .sas-social-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        /* Partners Section */
+        .sas-partners-section {
+            margin-bottom: 3rem;
+        }
+        .sas-partners-title {
+            font-size: 1rem;
+            color: var(--sas-grey-dark);
+            margin-bottom: 1rem;
+        }
+        .sas-partners-logos {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .sas-partner-logo {
+            max-width: 100px;
+            margin: 1rem;
+            box-shadow: 0 2px 8px rgba(26,34,56,0.10);
+            border-radius: 8px;
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+        .sas-partner-logo:hover {
+            box-shadow: 0 8px 24px rgba(26,34,56,0.18);
+            transform: scale(1.06);
+        }
+
+        /* Footer */
+        .sas-footer {
+            background-color: var(--sas-footer-bg);
+            color: var(--sas-text-light);
+            padding: 3rem 0 1rem;
+            text-align: center;
+        }
+
+        .sas-footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 2rem;
+        }
+
+        .sas-footer-column h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .sas-footer-column h4::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--sas-grey);
+            margin-top: 8px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .sas-footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sas-footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .sas-footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .sas-footer-social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--sas-grey-light);
+            color: var(--sas-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .sas-footer-social-icon:hover {
+            background-color: var(--sas-blue-light);
+            transform: scale(1.1);
+        }
+
+        .sas-footer-divider {
+            height: 1px;
+            background-color: var(--sas-grey);
+            margin: 1rem 0;
+        }
+
+        .sas-footer-bottom {
+            font-size: 0.9rem;
+            color: var(--sas-grey-light);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .sas-educational-levels {
+                flex-direction: column;
+                align-items: center;
+            }
+            .sas-footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .sas-social-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 768px) {
+            .sas-educational-levels {
+                flex-direction: column;
+                align-items: center;
+            }
+            .sas-footer-content {
+                grid-template-columns: 1fr;
+            }
+            .sas-social-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Back to Top Button */
+        #sas-back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--sas-blue);
+            color: var(--sas-text-light);
+            border: none;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 16px rgba(26,34,56,0.18);
+            transition: box-shadow 0.3s, background 0.3s, transform 0.2s;
+        }
+        #sas-back-to-top:hover {
+            background: var(--sas-red);
+            box-shadow: 0 8px 32px rgba(26,34,56,0.22);
+            transform: scale(1.08);
+        }
+
+        /* Welcome Modal */
+        .welcome-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0; top: 0;
+            width: 100vw; height: 100vh;
+            background: rgba(0, 57, 121, 0.45);
+            justify-content: center;
+            align-items: center;
+        }
+        .welcome-modal.active {
+            display: flex;
+        }
+        .welcome-modal-content {
+            background: #fff;
+            border-radius: 18px;
+            padding: 2.2rem 2rem 2rem 2rem;
+            max-width: 540px;
+            width: 95%;
+            box-shadow: 0 16px 48px rgba(26,34,56,0.22), 0 2px 8px rgba(26,34,56,0.10);
+            position: relative;
+            animation: slideInModal 0.4s;
+        }
+        .welcome-modal-close {
+            position: absolute;
+            top: 18px; right: 22px;
+            font-size: 2rem;
+            color: #003979;
+            cursor: pointer;
+            font-weight: bold;
+            transition: color 0.2s;
+        }
+        .welcome-modal-close:hover {
+            color: #ff002b;
+        }
+
+        .sas-banner-iframe {
+            display: block;
+            width: 100%;
+            height: 600px;
+            border: none;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        /* Video Section Styles */
+        .sas-video-section {
+            background: linear-gradient(135deg, #e3eafc 0%, #f9f9f9 100%);
+            padding: 60px 0 60px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .sas-video-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .sas-video-logo {
+            max-width: 320px;
+            width: 90vw;
+            height: auto;
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(0,57,121,0.12);
+            background: white;
+            padding: 32px;
+            transition: transform 0.3s;
+        }
+
+        .sas-video-logo:hover {
+            transform: scale(1.04) rotate(-2deg);
+            box-shadow: 0 12px 40px rgba(0,57,121,0.18);
+        }
+
+        @media (max-width: 600px) {
+            .sas-video-section {
+                padding: 30px 0;
+            }
+            .sas-video-logo {
+                padding: 12px;
+                max-width: 90vw;
+            }
+        }
+
+        /* --- INICIO: ESTILOS ADAPTADOS DEL BANNER --- */
+
+        .contenedor-central {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 12px 8px 0 8px;
+        }
+
+        /* Menú de imágenes adaptado */
+        .image-menu-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            padding: 20px 0;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+        .image-menu-item {
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+        .image-menu-item .menu-image {
+            display: block;
+            max-width: 180px;
+            height: auto;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 3px 12px rgba(26,34,56,0.12);
+            transition: filter 0.3s, box-shadow 0.3s, transform 0.3s;
+        }
+        .image-menu-item:hover {
+            transform: translateY(-8px) scale(1.07) rotate(-2deg);
+            box-shadow: 0 12px 32px rgba(26,34,56,0.18);
+        }
+        .image-menu-item:hover .menu-image {
+            filter: brightness(1.10) saturate(1.1);
+            box-shadow: 0 8px 24px rgba(26,34,56,0.22);
+        }
+        @media (max-width: 768px) {
+            .image-menu-wrapper {
+                gap: 20px;
+                padding: 15px 0;
+                margin-bottom: 20px;
+            }
+            .image-menu-item .menu-image {
+                max-width: 140px;
+            }
+        }
+        @media (max-width: 480px) {
+            .image-menu-wrapper {
+                flex-direction: column;
+                align-items: center;
+                gap: 25px;
+            }
+            .image-menu-item .menu-image {
+                max-width: 160px;
+            }
+        }
+
+        /* Slider adaptado */
+        .hero-slider-wrapper {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            background: var(--sas-grey-light);
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(26,34,56,0.14), 0 2px 8px rgba(26,34,56,0.08);
+            overflow: hidden;
+        }
+        .hero-slider-main {
+            position: relative;
+            overflow: hidden;
+            min-height: 220px;
+            height: 315px;
+            display: flex;
+            align-items: stretch;
+        }
+        .hero-slider-main .hero-slide {
+            width: 100%;
+            height: 100%;
+            display: none;
+            position: absolute;
+            left: 0; top: 0;
+            transition: opacity 0.5s, box-shadow 0.4s;
+        }
+        .hero-slider-main .hero-slide.active {
+            display: block;
+            position: relative;
+            opacity: 1;
+            z-index: 2;
+            box-shadow: 0 6px 24px rgba(26,34,56,0.10);
+            animation: fadeIn 0.7s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        .hero-slider-main .hero-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 18px;
+        }
+        .hero-slider-main .hero-caption {
+            position: absolute;
+            left: 18px;
+            bottom: 18px;
+            background: rgba(26,34,56,0.90);
+            color: #fff;
+            padding: 0.7rem 1.2rem;
+            border-radius: 0 10px 10px 0;
+            font-size: 1.05rem;
+            font-weight: bold;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+            max-width: 70%;
+        }
+        .hero-slider-nav {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            right: 10px;
+            display: flex;
+            justify-content: space-between;
+            z-index: 10;
+            pointer-events: none;
+        }
+        .hero-slider-nav button {
+            pointer-events: all;
+            background: rgba(26,34,56,0.8);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: background 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 8px rgba(26,34,56,0.12);
+        }
+        .hero-slider-nav button:hover {
+            background: var(--sas-blue-light);
+            box-shadow: 0 4px 16px rgba(26,34,56,0.18);
+        }
+        @media (max-width: 900px) {
+            .contenedor-central {
+                padding: 8px 2vw 0 2vw;
+            }
+            .hero-slider-wrapper {
+                max-width: 98vw;
+            }
+            .hero-slider-main {
+                min-height: 120px;
+                height: 150px;
+            }
+        }
+        /* --- FIN: ESTILOS ADAPTADOS DEL BANNER --- */
+
+        .sas-educational-levels-wrapper {
+            border: 4px solid var(--sas-blue);
+            border-radius: 18px;
+            padding: 32px 24px 28px 24px;
+            margin: 40px auto 0 auto;
+            background: var(--sas-grey-light);
+            max-width: 1240px;
+            box-shadow: 0 4px 18px rgba(26,34,56,0.08);
+        }
+        .sas-educational-levels-header {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 32px;
+            justify-content: center;
+        }
+        .sas-educational-levels-logo {
+            height: 54px;
+            width: auto;
+            border-radius: 8px;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(26,34,56,0.10);
+            padding: 4px 8px;
+        }
+        .sas-educational-levels-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--sas-blue);
+            letter-spacing: 0.02em;
+            margin: 0;
+            font-family: 'Montserrat', Arial, sans-serif;
+        }
+        @media (max-width: 768px) {
+            .sas-educational-levels-wrapper {
+                padding: 18px 6px 18px 6px;
+            }
+            .sas-educational-levels-header {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .sas-educational-levels-title {
+                font-size: 1.2rem;
+                text-align: center;
+            }
+            .sas-educational-levels-logo {
+                height: 38px;
+            }
+        }
+
+        /* --- MEJORAS DE SOMBRAS Y EFECTOS --- */
+
+        /* Tarjetas de niveles educativos */
+        .sas-level-card {
+            position: relative;
+            width: 24%;
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: var(--sas-text-light);
+            box-shadow: 0 4px 16px rgba(26,34,56,0.12), 0 1.5px 6px rgba(26,34,56,0.08);
+            transition: box-shadow 0.35s cubic-bezier(.4,0,.2,1), transform 0.35s cubic-bezier(.4,0,.2,1);
+        }
+        .sas-level-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 12px 36px rgba(26,34,56,0.18), 0 2px 8px rgba(26,34,56,0.12);
+        }
+
+        /* Botones dentro de las tarjetas */
+        .sas-level-card-content .sas-btn {
+            display: inline-block;
+            padding: 10px 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: var(--sas-blue);
+            background-color: white;
+            border-radius: 30px;
+            border: 2px solid white;
+            box-shadow: 0 2px 8px rgba(26,34,56,0.10);
+            transition: background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.2s;
+        }
+        .sas-level-card-content .sas-btn:hover {
+            background-color: var(--sas-red);
+            color: white;
+            box-shadow: 0 6px 18px rgba(26,34,56,0.18);
+            transform: scale(1.04);
+        }
+        .sas-level-card-content .sas-btn:active {
+            transform: scale(0.97);
+        }
+
+        /* Menú de imágenes con más profundidad */
+        .image-menu-item {
+            transition: transform 0.3s cubic-bezier(.4,0,.2,1), box-shadow 0.3s cubic-bezier(.4,0,.2,1);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+        .image-menu-item .menu-image {
+            box-shadow: 0 3px 12px rgba(26,34,56,0.12);
+            transition: filter 0.3s, box-shadow 0.3s, transform 0.3s;
+        }
+        .image-menu-item:hover {
+            transform: translateY(-8px) scale(1.07) rotate(-2deg);
+            box-shadow: 0 12px 32px rgba(26,34,56,0.18);
+        }
+        .image-menu-item:hover .menu-image {
+            filter: brightness(1.10) saturate(1.1);
+            box-shadow: 0 8px 24px rgba(26,34,56,0.22);
+        }
+
+        /* Slider principal con sombra más profunda */
+        .hero-slider-wrapper {
+            box-shadow: 0 8px 32px rgba(26,34,56,0.14), 0 2px 8px rgba(26,34,56,0.08);
+        }
+        .hero-slider-main .hero-slide {
+            transition: opacity 0.5s, box-shadow 0.4s;
+        }
+        .hero-slider-main .hero-slide.active {
+            box-shadow: 0 6px 24px rgba(26,34,56,0.10);
+            animation: fadeIn 0.7s;
+        }
+        .hero-slider-nav button {
+            box-shadow: 0 2px 8px rgba(26,34,56,0.12);
+            transition: background 0.2s, box-shadow 0.2s;
+        }
+        .hero-slider-nav button:hover {
+            background: var(--sas-blue-light);
+            box-shadow: 0 4px 16px rgba(26,34,56,0.18);
+        }
+
+        /* Modal de bienvenida más destacado */
+        .welcome-modal-content {
+            box-shadow: 0 16px 48px rgba(26,34,56,0.22), 0 2px 8px rgba(26,34,56,0.10);
+            transition: box-shadow 0.3s;
+        }
+
+        /* Botón "Back to Top" con efecto de elevación */
+        #sas-back-to-top {
+            box-shadow: 0 4px 16px rgba(26,34,56,0.18);
+            transition: box-shadow 0.3s, background 0.3s, transform 0.2s;
+        }
+        #sas-back-to-top:hover {
+            background: var(--sas-red);
+            box-shadow: 0 8px 32px rgba(26,34,56,0.22);
+            transform: scale(1.08);
+        }
+
+        /* Tarjetas de redes sociales con sombra más suave */
+        .sas-social-card {
+            box-shadow: 0 4px 16px rgba(26,34,56,0.10);
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+        .sas-social-card:hover {
+            box-shadow: 0 12px 32px rgba(26,34,56,0.18);
+            transform: translateY(-6px) scale(1.03);
+        }
+
+        /* Footer columnas con efecto sutil */
+        .sas-footer-column {
+            transition: box-shadow 0.3s;
+        }
+        .sas-footer-column:hover {
+            box-shadow: 0 4px 16px rgba(26,34,56,0.10);
+        }
+
+        /* Sombra en logos de partners */
+        .sas-partner-logo {
+            box-shadow: 0 2px 8px rgba(26,34,56,0.10);
+            border-radius: 8px;
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+        .sas-partner-logo:hover {
+            box-shadow: 0 8px 24px rgba(26,34,56,0.18);
+            transform: scale(1.06);
+        }
+
+        /* Nuevo estilo para el menú */
+    .sas-new-nav {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        background: linear-gradient(90deg, #1a2238, #3a497b);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+
+    .sas-nav-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+    }
+
+    .sas-logo-link img {
+        height: 50px;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .sas-logo-link:hover img {
+        transform: scale(1.1);
+    }
+
+    .sas-nav-menu {
+        display: flex;
+        gap: 20px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .sas-nav-link {
+        color: #ffffff;
+        font-size: 1rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 10px 15px;
+        transition: color 0.3s ease-in-out, background 0.3s ease-in-out;
+        border-radius: 8px;
+    }
+
+    .sas-nav-link:hover {
+        background: #ff002b;
+        color: #ffffff;
+    }
+
+    .sas-nav-dropdown {
+        position: relative;
+    }
+
+    .sas-dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #ffffff;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+        z-index: 100;
+    }
+
+    .sas-dropdown-link {
+        display: block;
+        padding: 10px 20px;
+        color: #1a2238;
+        font-size: 0.9rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+    }
+
+    .sas-dropdown-link:hover {
+        background: #3a497b;
+        color: #ffffff;
+    }
+
+    .sas-nav-dropdown:hover .sas-dropdown-menu {
+        display: block;
+    }
+
+    .sas-nav-burger {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+    }
+
+    .sas-nav-burger span {
+        display: block;
+        width: 30px;
+        height: 4px;
+        margin: 5px 0;
+        background: #ffffff;
+        border-radius: 2px;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .sas-nav-burger.active span:nth-child(1) {
+        transform: translateY(10px) rotate(45deg);
+    }
+
+    .sas-nav-burger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .sas-nav-burger.active span:nth-child(3) {
+        transform: translateY(-10px) rotate(-45deg);
+    }
+
+    @media (max-width: 768px) {
+        .sas-nav-menu {
+            display: none;
+            flex-direction: column;
+            background: #1a2238;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 80%;
+            height: 100%;
+            padding: 20px;
+            box-shadow: -4px 0 12px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .sas-nav-menu.active {
+            display: flex;
+        }
+
+        .sas-nav-link {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .sas-nav-burger {
+            display: flex;
+        }
+    }
+
+    /* Efecto titilar en rojo para INSCRIPCIONES */
+    .sas-nav-link.inscripciones {
+        animation: titilar 1s infinite;
+    }
+
+    @keyframes titilar {
+        0%, 100% {
+            background-color: #ff002b;
+            color: #ffffff;
+        }
+        50% {
+            background-color: transparent;
+            color: #ff002b;
+        }
+    }
+    /* Historia Section */
+.sas-history-section {
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #f9f9f9 0%, #e3eafc 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sas-history-content {
+    display: flex;
+    gap: 2rem;
+    max-width: 1200px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.sas-history-image-wrapper {
+    flex: 1;
+    max-width: 600px;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(26, 34, 56, 0.12);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.sas-history-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.sas-history-image-wrapper:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 40px rgba(26, 34, 56, 0.18);
+}
+
+.sas-history-text-wrapper {
+    flex: 1;
+    max-width: 600px;
+    text-align: left;
+}
+
+.sas-history-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--sas-blue);
+    margin-bottom: 1rem;
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+
+.sas-history-description {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--sas-text-dark);
+    margin-bottom: 2rem;
+}
+
+.sas-btn {
+    display: inline-block;
+    padding: 10px 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--sas-text-light);
+    background-color: var(--sas-blue);
+    border-radius: 30px;
+    border: 2px solid var(--sas-blue);
+    box-shadow: 0 2px 8px rgba(26, 34, 56, 0.10);
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.2s;
+}
+
+.sas-btn:hover {
+    background-color: var(--sas-red);
+    color: var(--sas-text-light);
+    box-shadow: 0 6px 18px rgba(26, 34, 56, 0.18);
+    transform: scale(1.04);
+}
+
+@media (max-width: 768px) {
+    .sas-history-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .sas-history-text-wrapper {
+        max-width: 100%;
+    }
+
+    .sas-history-title {
+        font-size: 2rem;
+    }
+
+    .sas-history-description {
+        font-size: 1rem;
+    }
+}
+    
+.visually-hidden {
+  position: absolute;
+  left: -9999px;
+}
+</style>
+</head>
+<body class="sas-body">
+    <!-- Header -->
+    <header>
+    <nav class="sas-new-nav">
+        <div class="sas-container sas-nav-content">
+            <a href="/" class="sas-logo-link">
+                <img src="/imagenes/Sarmiento.png" alt="Logo del Instituto Sarmiento" class="sas-logo-image">
+            </a>
+            <ul class="sas-nav-menu">
+                <li><a href="#sas-history" class="sas-nav-link">HISTORIA</a></li>
+                <li class="sas-nav-dropdown">
+                    <a href="#sas-educational-levels" class="sas-nav-link">FORMACIÓN</a>
+                    <ul class="sas-dropdown-menu">
+                        <li><a href="#sas-kinder" class="sas-dropdown-link">EDUCACIÓN INICIAL</a></li>
+                        <li><a href="#sas-primary" class="sas-dropdown-link">EDUCACIÓN PRIMARIA</a></li>
+                        <li><a href="#sas-secondary" class="sas-dropdown-link">EDUCACIÓN SECUNDARIA</a></li>
+                        <li><a href="#sas-superior" class="sas-dropdown-link">EDUCACIÓN SUPERIOR</a></li>
+                    </ul>
+                </li>
+                <li><a href="/staff.html" class="sas-nav-link">STAFF</a></li>
+                <li><a href="/inscripcion.html" class="sas-nav-link inscripciones">INSCRIPCIONES</a></li>
+                <li><a href="/contacto.html" class="sas-nav-link">CONTACTO</a></li>
+            </ul>
+            <button class="sas-nav-burger" id="sas-nav-burger" aria-label="Abrir menú móvil">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+    </header>
+
+    <!-- Main Content -->
+    
+<main>
+  <h1 class="visually-hidden">Instituto Domingo Faustino Sarmiento - Educación en San Antonio de Padua</h1>
+
+        <!-- Banner -->
+        <section class="contenedor-central">
+            <div class="image-menu-wrapper">
+                <a href="#sas-educational-levels-wrapper" class="image-menu-item" title="Acceder Nivel Inicial">
+                    <img src="/imagenes/Sarmiento.png" alt="Logo Nivel Inicial" class="menu-image">
+                </a>
+                <a href="/inles.html" class="image-menu-item" title="Acceder Nivel Inglés">
+                    <img src="/imagenes/logo-ingles.png" alt="Logo Nivel Inglés" class="menu-image">
+                </a>
+                <a href="/Aniversario.html" class="image-menu-item" title="Acceder Aniversario">
+                    <img src="/imagenes/logo aniversario.png" alt="Logo Otra Sección Importante" class="menu-image">
+                </a>
+            </div>
+            <div class="hero-slider-wrapper">
+                <div class="hero-slider-main">
+                    <div class="hero-slide active">
+                        <img src="/imagenes/slider1.jpeg" alt="Estudiantes aprendiendo en un aula moderna" loading="lazy">
+                        <div class="hero-caption">
+                            Aprendizaje centrado en la persona y su comunidad
+                        </div>
+                    </div>
+                    <div class="hero-slide">
+                        <img src="/imagenes/slider-2.jpg" alt="Slide 2">
+                        <div class="hero-caption">
+                            Innovación y creatividad en cada paso
+                        </div>
+                    </div>
+                    <div class="hero-slide">
+                        <img src="/imagenes/slider-3.jpg" alt="Slide 3">
+                        <div class="hero-caption">
+                            Conexión con la comunidad global
+                        </div>
+                    </div>
+                    <div class="hero-slider-nav">
+                        <button class="slider-btn" onclick="prevSlide()">&#10094;</button>
+                        <button class="slider-btn" onclick="nextSlide()">&#10095;</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+<!-- History Section -->
+        <section id="sas-history" class="sas-history-section">
+            <div class="sas-container sas-history-content" data-aos="fade-up">
+                <div class="sas-history-image-wrapper">
+                    <img src="/imagenes/nuestra-historia.png" alt="Historia del Instituto Sarmiento" class="sas-history-image">
+                </div>
+                <div class="sas-history-text-wrapper">
+                    <h2 class="sas-history-title">Nuestra Historia</h2>
+                    <p class="sas-history-description">
+                        Nuestra Historia
+Desde 1949, nuestra institución acompaña a niños, jóvenes y familias en su camino educativo. Nacimos con el objetivo de brindar una formación integral y fuimos creciendo junto a la comunidad, incorporando nuevos niveles y proyectos.
+Hoy seguimos comprometidos con una educación de calidad, innovadora y cercana, fieles a nuestros valores fundacionales.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+<div></div></dic>
+
+        <!-- Educational Levels -->
+        <section id="sas-educational-levels-wrapper" class="sas-educational-levels-wrapper">
+            <div class="sas-educational-levels-header">
+                <img src="/imagenes/Sarmiento.png" alt="Logo Sarmiento" class="sas-educational-levels-logo">
+                <h2 class="sas-educational-levels-title">Instituto Domingo Faustino Sarmiento</h2>
+            </div>
+            <div class="sas-container sas-educational-levels" data-aos="fade-up">
+                <div id="sas-kinder" class="sas-level-card sas-kinder" data-aos="zoom-in">
+                    <img src="/imagenes/Kinder-Block-512x347.jpg" alt="Nivel Kinder">
+                    <div class="sas-level-card-content">
+                        <h3>Jardín Maternal</h3>
+                        <p>Creemos en la educación integral del niño y en el desarrollo de todos los aspectos de su crecimiento.</p>
+                        <a href="/kinder" class="sas-btn sas-link">VER MÁS</a>
+                    </div>
+                </div>
+                <div id="sas-primary" class="sas-level-card sas-primary" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="/imagenes/Primary-Block-1-512x347.jpg" alt="Nivel Primaria">
+                    <div class="sas-level-card-content">
+                        <h3>Nivel Primario</h3>
+                        <p>Las experiencias de aprendizaje de nuestros alumnos durante sus años de Primaria están llenas de maravillas y descubrimientos.</p>
+                        <a href="/primaria" class="sas-btn sas-link">VER MÁS</a>
+                    </div>
+                </div>
+                <div id="sas-secondary" class="sas-level-card sas-secondary" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="/imagenes/Secondary-Block-512x347.jpg" alt="Nivel Secundaria">
+                    <div class="sas-level-card-content">
+                        <h3>Nivel Secundario</h3>
+                        <p>Queremos que nuestros estudiantes sean proactivos, reflexivos y estén motivados a trabajar en temas significativos que importan a la humanidad.</p>
+                        <a href="/secundaria" class="sas-btn sas-link">VER MÁS</a>
+                    </div>
+                </div>
+                <div id="sas-superior" class="sas-level-card sas-superior" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="/imagenes/superior.jpg" alt="Nivel Superior">
+                    <div class="sas-level-card-content">
+                        <h3>Nivel Superior</h3>
+                        <p>En el Nivel Superior, buscamos formar profesionales con pensamiento crítico y habilidades para enfrentar los desafíos globales.</p>
+                        <a href="/superior" class="sas-btn sas-link">VER MÁS</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+
+    <!-- Footer -->
+    <footer class="sas-footer">
+        <div class="sas-container sas-footer-content">
+            <!-- Primera columna -->
+            <div class="sas-footer-column">
+                <h4>Contacto</h4>
+                <ul>
+                    <li class="sas-contact-item">
+                        <span class="sas-contact-icon"><i class="fas fa-map-marker-alt"></i></span>
+                        <span>Italia 1170, San Antonio de Padua</span>
+                    </li>
+                    <li class="sas-contact-item">
+                        <span class="sas-contact-icon"><i class="fas fa-phone"></i></span>
+                        <span>+54 11 4555-1234</span>
+                    </li>
+                    <li class="sas-contact-item">
+                        <span class="sas-contact-icon"><i class="fas fa-envelope"></i></span>
+                        <span>info@Sarmiento.edu.ar</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Segunda columna -->
+            <div class="sas-footer-column">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="/kinder" class="sas-link">Educación Inicial</a></li>
+                    <li><a href="/primaria" class="sas-link">Educación Primaria</a></li>
+                    <li><a href="/secundaria" class="sas-link">Educación Secundaria</a></li>
+                    <li><a href="/contacto" class="sas-link">Contacto</a></li>
+                </ul>
+            </div>
+
+            <!-- Tercera columna -->
+            <div class="sas-footer-column">
+                <h4>¡Síguenos!</h4>
+                <div class="sas-footer-social">
+                    <a href="#" class="sas-footer-social-icon sas-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="sas-footer-social-icon sas-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="sas-footer-social-icon sas-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="sas-footer-social-icon sas-link"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Línea divisoria -->
+        <div class="sas-footer-divider"></div>
+
+        <!-- Parte inferior del footer -->
+        <div class="sas-container sas-footer-bottom">
+            <p>&copy; 2025 Domingo Faustino Sarmiento - Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <script>
+        // Slider funcionalidad simple
+        const slides = document.querySelectorAll('.hero-slider-main .hero-slide');
+        let currentSlide = 0;
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+            currentSlide = index;
+        }
+        function nextSlide() {
+            showSlide((currentSlide + 1) % slides.length);
+        }
+        function prevSlide() {
+            showSlide((currentSlide - 1 + slides.length) % slides.length);
+        }
+        setInterval(nextSlide, 5000);
+        showSlide(currentSlide);
+
+        // JavaScript modularizado
+        document.addEventListener('DOMContentLoaded', () => {
+            const burger = document.getElementById('sas-modern-burger');
+            const nav = document.getElementById('sas-nav-modern');
+            burger.addEventListener('click', () => {
+                burger.classList.toggle('active');
+                nav.classList.toggle('active');
+            });
+        });
+    </script>
+    <!-- AOS JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            AOS.init({
+                duration: 800,
+                once: true,
+                disable: 'mobile',
+            });
+        });
+    </script>
+    <script>
+    // Funcionalidad del menú móvil
+    document.addEventListener('DOMContentLoaded', () => {
+        const burger = document.getElementById('sas-nav-burger');
+        const menu = document.querySelector('.sas-nav-menu');
+
+        burger.addEventListener('click', () => {
+            burger.classList.toggle('active');
+            menu.classList.toggle('active');
+        });
+    });
+    </script>
+</body>
+</html>

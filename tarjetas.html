@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarjetas - St. Andrew's Scots School</title>
+    <style>
+        /* Variables base inspiradas en index.html */
+        :root {
+            --primary-bg: #1a2238;
+            --secondary-bg: #3a497b;
+            --bg-gradient: linear-gradient(135deg, var(--primary-bg), var(--secondary-bg));
+            --accent: #ff0057;
+            --text-color: #cfcfcf;
+            --title-gradient-start: #00e6ff;
+            --title-gradient-end: #ff0057;
+            --card-bg: #111;
+            --transition-speed: 0.4s;
+            --font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Reset básico y base tipográfica */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: var(--bg-gradient);
+            color: var(--text-color);
+            font-family: var(--font-family);
+            line-height: 1.6;
+        }
+        
+        /* Contenedor principal */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 1em;
+        }
+        
+        /* Sección de tarjetas */
+        .levels {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 1.5em;
+            padding: 2em 1em;
+        }
+        
+        /* Estilo para las tarjetas */
+        .level-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            flex: 1 1 250px;
+            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.6);
+        }
+        
+        .level-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.6);
+        }
+        
+        .level-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            filter: brightness(0.8);
+            transition: filter 0.4s ease;
+        }
+        
+        .level-card img:hover {
+            filter: brightness(1);
+        }
+        
+        /* Contenido interno de la tarjeta */
+        .card-content {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 1.5em;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+        
+        .card-content h3 {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 0.5em;
+            background: linear-gradient(90deg, var(--title-gradient-start), var(--title-gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .card-content p {
+            font-size: 1rem;
+            margin-bottom: 1em;
+            color: var(--text-color);
+        }
+        
+        /* Botón moderno sin subrayado */
+        .btn {
+            display: inline-block;
+            padding: 0.75em 1.5em;
+            font-size: 1rem;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--text-color);
+            border: 2px solid var(--accent);
+            border-radius: 50px;
+            background: transparent;
+            transition: background var(--transition-speed) ease, color var(--transition-speed) ease,
+                        transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+            cursor: pointer;
+            align-self: center;
+        }
+        
+        .btn:hover,
+        .btn:focus {
+            background: var(--accent);
+            color: var(--bg-gradient);
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(255, 0, 87, 0.6);
+            outline: none;
+        }
+        
+        /* Animación fade‑in para la carga progresiva de las tarjetas */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <section class="container levels">
+        <div class="level-card" data-level="kinder">
+            <img src="/imagenes/Kinder-Block-512x347.jpg" alt="Nivel Kinder">
+            <div class="card-content">
+                <h3>Kinder</h3>
+                <p>Creemos en la educación integral del niño y en el desarrollo de todos los aspectos de su crecimiento.</p>
+                <a href="/kinder" class="btn">VER MÁS</a>
+            </div>
+        </div>
+        <div class="level-card" data-level="primaria">
+            <img src="/imagenes/Primary-Block-1-512x347.jpg" alt="Nivel Primaria">
+            <div class="card-content">
+                <h3>Primaria</h3>
+                <p>Las experiencias de aprendizaje de nuestros alumnos durante sus años de Primaria están llenas de maravillas y descubrimientos.</p>
+                <a href="/primaria" class="btn">VER MÁS</a>
+            </div>
+        </div>
+        <div class="level-card" data-level="secundaria">
+            <img src="/imagenes/Secondary-Block-512x347.jpg" alt="Nivel Secundaria">
+            <div class="card-content">
+                <h3>Secundaria</h3>
+                <p>Queremos que nuestros estudiantes sean proactivos, reflexivos y estén motivados a trabajar en temas significativos que importan a la humanidad.</p>
+                <a href="/secundaria" class="btn">VER MÁS</a>
+            </div>
+        </div>
+        <div class="level-card" data-level="superior">
+            <img src="/imagenes/superior.jpg" alt="Nivel Superior">
+            <div class="card-content">
+                <h3>Superior</h3>
+                <p>En el Nivel Superior, buscamos formar profesionales con pensamiento crítico y habilidades para enfrentar los desafíos globales.</p>
+                <a href="/superior" class="btn">VER MÁS</a>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const cards = document.querySelectorAll('.level-card');
+            cards.forEach((card, index) => {
+                card.classList.add('fade-in');
+                setTimeout(() => {
+                    card.classList.add('visible');
+                }, index * 200);
+            });
+        });
+    </script>
+</body>
+</html>
